@@ -6,12 +6,16 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 15:03:53 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/06 15:08:51 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/06 15:49:57 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+int		is_greater(int k, int l)
+{
+	return(k > l);
+}
 t_list	*ft_lstlast(t_list *lst)
 {
 	if (!lst)
