@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 11:50:37 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/06 16:16:38 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/06 16:17:34 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ int main(int argc, char **argv)
 	{
 		check_for_doubles(argv);
 		check_for_invalid_char(argv);
+		check_if_integer(argv);
 		init_stacks(argv, a);
 		while(*a)
 		{
