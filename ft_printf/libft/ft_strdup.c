@@ -1,44 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/06 11:50:37 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/06 15:04:51 by busseven         ###   ########.fr       */
+/*   Created: 2024/10/17 13:24:48 by busseven          #+#    #+#             */
+/*   Updated: 2024/10/22 20:47:59 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	init_stacks(char **argv, t_list **a)
+char	*ft_strdup(const char *s1)
 {
-	int i;
-	t_list	*new;
+	char	*cpy;
+	int		i;
 
-	i = 1;
-	while(argv[i])
+	cpy = malloc((ft_strlen(s1) * sizeof(char)) + 1);
+	if (!cpy)
+		return (NULL);
+	i = 0;
+	while (s1[i])
 	{
-		new = ft_lstnew(ft_atoi(argv[i]));
-		ft_lstadd_back(a, new);
+		cpy[i] = s1[i];
 		i++;
 	}
-}
-int main(int argc, char **argv)
-{
-	t_list	**a;
-
-	a = ft_calloc(1, sizeof(t_list));
-	if(argc >= 2)
-	{
-		init_stacks(argv, a);
-		while(*a)
-		{
-			ft_printf("%d", (*a)->content);
-			*a = (*a)->next;
-		}
-	}
-	else
-		ft_printf("Error\nno arguments");
+	cpy[i] = '\0';
+	return (cpy);
 }

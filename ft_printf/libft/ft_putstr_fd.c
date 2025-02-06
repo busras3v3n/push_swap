@@ -1,44 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/06 11:50:37 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/06 15:04:51 by busseven         ###   ########.fr       */
+/*   Created: 2024/10/19 12:19:11 by busseven          #+#    #+#             */
+/*   Updated: 2024/10/28 11:00:59 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include <unistd.h>
 
-void	init_stacks(char **argv, t_list **a)
+void	ft_putstr_fd(char *s, int fd)
 {
-	int i;
-	t_list	*new;
+	int	i;
 
-	i = 1;
-	while(argv[i])
+	i = 0;
+	while (s[i])
 	{
-		new = ft_lstnew(ft_atoi(argv[i]));
-		ft_lstadd_back(a, new);
+		write(fd, &s[i], 1);
 		i++;
 	}
-}
-int main(int argc, char **argv)
-{
-	t_list	**a;
-
-	a = ft_calloc(1, sizeof(t_list));
-	if(argc >= 2)
-	{
-		init_stacks(argv, a);
-		while(*a)
-		{
-			ft_printf("%d", (*a)->content);
-			*a = (*a)->next;
-		}
-	}
-	else
-		ft_printf("Error\nno arguments");
 }

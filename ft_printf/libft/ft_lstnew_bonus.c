@@ -1,44 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/06 11:50:37 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/06 15:04:51 by busseven         ###   ########.fr       */
+/*   Created: 2024/10/22 10:18:14 by busseven          #+#    #+#             */
+/*   Updated: 2024/10/27 09:28:46 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	init_stacks(char **argv, t_list **a)
+t_list	*ft_lstnew(void *content)
 {
-	int i;
 	t_list	*new;
 
-	i = 1;
-	while(argv[i])
-	{
-		new = ft_lstnew(ft_atoi(argv[i]));
-		ft_lstadd_back(a, new);
-		i++;
-	}
-}
-int main(int argc, char **argv)
-{
-	t_list	**a;
-
-	a = ft_calloc(1, sizeof(t_list));
-	if(argc >= 2)
-	{
-		init_stacks(argv, a);
-		while(*a)
-		{
-			ft_printf("%d", (*a)->content);
-			*a = (*a)->next;
-		}
-	}
-	else
-		ft_printf("Error\nno arguments");
+	new = malloc(sizeof(t_list) * 1);
+	if (!new)
+		return (NULL);
+	new->content = content;
+	new->next = NULL;
+	return (new);
 }

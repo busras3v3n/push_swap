@@ -1,44 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/06 11:50:37 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/06 15:04:51 by busseven         ###   ########.fr       */
+/*   Created: 2024/10/12 19:00:50 by busseven          #+#    #+#             */
+/*   Updated: 2024/10/22 20:47:31 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	init_stacks(char **argv, t_list **a)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	int i;
-	t_list	*new;
+	size_t	i;
 
-	i = 1;
-	while(argv[i])
+	i = len - 1;
+	if (len == 0 || dst == src)
+		return (dst);
+	if (dst > src)
 	{
-		new = ft_lstnew(ft_atoi(argv[i]));
-		ft_lstadd_back(a, new);
-		i++;
-	}
-}
-int main(int argc, char **argv)
-{
-	t_list	**a;
-
-	a = ft_calloc(1, sizeof(t_list));
-	if(argc >= 2)
-	{
-		init_stacks(argv, a);
-		while(*a)
+		while (i > 0)
 		{
-			ft_printf("%d", (*a)->content);
-			*a = (*a)->next;
+			*(char *)(dst + i) = *(char *)(src + i);
+			i--;
 		}
+		if (i == 0)
+			*(char *)(dst + i) = *(char *)(src + i);
 	}
 	else
-		ft_printf("Error\nno arguments");
+	{
+		ft_memcpy(dst, src, len);
+	}
+	return (dst);
 }

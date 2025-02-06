@@ -1,44 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/06 11:50:37 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/06 15:04:51 by busseven         ###   ########.fr       */
+/*   Created: 2024/10/12 12:46:32 by busseven          #+#    #+#             */
+/*   Updated: 2024/10/22 20:47:34 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	init_stacks(char **argv, t_list **a)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	int i;
-	t_list	*new;
+	size_t			i;
+	unsigned char	*s;
 
-	i = 1;
-	while(argv[i])
+	s = b;
+	i = 0;
+	while (i < len)
 	{
-		new = ft_lstnew(ft_atoi(argv[i]));
-		ft_lstadd_back(a, new);
+		s[i] = c;
 		i++;
 	}
-}
-int main(int argc, char **argv)
-{
-	t_list	**a;
-
-	a = ft_calloc(1, sizeof(t_list));
-	if(argc >= 2)
-	{
-		init_stacks(argv, a);
-		while(*a)
-		{
-			ft_printf("%d", (*a)->content);
-			*a = (*a)->next;
-		}
-	}
-	else
-		ft_printf("Error\nno arguments");
+	return (b);
 }

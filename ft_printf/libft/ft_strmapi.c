@@ -1,44 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/06 11:50:37 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/06 15:04:51 by busseven         ###   ########.fr       */
+/*   Created: 2024/10/18 19:33:37 by busseven          #+#    #+#             */
+/*   Updated: 2024/10/22 20:48:18 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	init_stacks(char **argv, t_list **a)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int i;
-	t_list	*new;
+	char	*str;
+	int		i;
 
-	i = 1;
-	while(argv[i])
+	i = 0;
+	str = malloc((ft_strlen(s) * sizeof(char)) + 1);
+	if (!str)
+		return (NULL);
+	while (s[i])
 	{
-		new = ft_lstnew(ft_atoi(argv[i]));
-		ft_lstadd_back(a, new);
+		str[i] = f(i, s[i]);
 		i++;
 	}
-}
-int main(int argc, char **argv)
-{
-	t_list	**a;
-
-	a = ft_calloc(1, sizeof(t_list));
-	if(argc >= 2)
-	{
-		init_stacks(argv, a);
-		while(*a)
-		{
-			ft_printf("%d", (*a)->content);
-			*a = (*a)->next;
-		}
-	}
-	else
-		ft_printf("Error\nno arguments");
+	str[i] = '\0';
+	return (str);
 }
