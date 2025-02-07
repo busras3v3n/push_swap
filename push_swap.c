@@ -6,24 +6,24 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 11:50:37 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/07 14:20:36 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/07 16:25:06 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		set_index(int content, t_list **a)
+int		set_index(int content, t_list *a)
 {
 	int i;
 
 	i = 0;
-	while(*a)
+	while(a)
 	{
-		if(content > (*a)->content)
+		if(content > a->content)
 			i++;
-		else if(content < (*a)->content)
-			(*a)->index++;
-		*a = (*a)->next;
+		else if(content < a->content)
+			(a->index)++;
+		a = a->next;
 	}
 	return(i);
 }
@@ -39,7 +39,7 @@ void	init_stacks(char **argv, t_list **a)
 		content = ft_atoi(argv[i]);
 		new = ft_lstnew(content);
 		if(i != 1)
-			new->index = set_index(content, a);
+			new->index = set_index(content, *a);
 		ft_lstadd_back(a, new);
 		i++;
 	}
@@ -56,12 +56,9 @@ int main(int argc, char **argv)
 		check_for_invalid_char(argv);
 		check_for_non_int(argv);
 		init_stacks(argv, a);
-		swap(a, "a");
-		rotate(a, "a");
-		rotate(a, "a");
 		while(*a)
 		{
-			ft_printf("%d", (*a)->content);
+			ft_printf("%d : %d\n", (*a)->content, (*a)->index);
 			*a = (*a)->next;
 		}
 	}
