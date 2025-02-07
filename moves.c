@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 17:13:40 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/07 13:23:13 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/07 14:19:08 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,19 +62,19 @@ void	reverse_rotate(t_list **stack, char *name)
 }
 void	both_swap(t_list **stack_a, t_list **stack_b)
 {
-	swap(stack_a);
-	swap(stack_b);
+	swap(stack_a, "a");
+	swap(stack_b, "b");
 	ft_printf("ss\n");
 }
 void	both_rotate(t_list **stack_a, t_list **stack_b)
 {
-	rotate(stack_a);
-	rotate(stack_b);
+	rotate(stack_a, "a");
+	rotate(stack_b, "b");
 	ft_printf("rr\n");
 }
 void	both_reverse(t_list **stack_a, t_list **stack_b)
 {
-	reverse_rotate(stack_a);
-	reverse_rotate(stack_b);
+	reverse_rotate(stack_a, "a");
+	reverse_rotate(stack_b, "b");
 	ft_printf("rrr\n");
 }

@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 11:50:37 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/07 14:17:25 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/07 14:20:36 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int		set_index(int content, t_list **a)
 			(*a)->index++;
 		*a = (*a)->next;
 	}
+	return(i);
 }
 void	init_stacks(char **argv, t_list **a)
 {
@@ -55,9 +56,9 @@ int main(int argc, char **argv)
 		check_for_invalid_char(argv);
 		check_for_non_int(argv);
 		init_stacks(argv, a);
-		swap(a);
-		rotate(a);
-		rotate(a);
+		swap(a, "a");
+		rotate(a, "a");
+		rotate(a, "a");
 		while(*a)
 		{
 			ft_printf("%d", (*a)->content);

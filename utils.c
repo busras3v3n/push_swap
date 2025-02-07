@@ -6,15 +6,12 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 15:03:53 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/07 14:14:18 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/07 14:18:34 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	set_index(t_list **a)
-{
-}
 int		is_sign(char c)
 {
 	return(c == '-' || c == '+');
