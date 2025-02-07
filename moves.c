@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 17:13:40 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/07 18:36:56 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/07 20:33:43 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ void	push(t_list **from, t_list **to, char *to_name)
 }
 void	rotate(t_list **stack, char *name)
 {
-	t_list	*remove;
 	t_list	*new;
+	t_list	*remove;
 
 	if(ft_lstsize(*stack) > 1)
 	{
@@ -55,7 +55,7 @@ void	rotate(t_list **stack, char *name)
 		ft_lstadd_back(stack, new);
 		remove = *stack;
 		*stack = (*stack)->next;
-		free(remove);	
+		free(remove);
 	}
 	ft_printf("r%s\n", name);
 }

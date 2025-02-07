@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 11:50:37 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/07 18:15:37 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/07 20:20:53 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int main(int argc, char **argv)
 	{
 		error_handling(argv);
 		init_stacks(argv, a);
-		reverse_rotate(a, "a");
+		rotate(a, "a");
 		while(*a)
 		{
 			ft_printf("%d : %d\n", (*a)->content, (*a)->index);
