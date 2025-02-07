@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 15:03:53 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/06 17:06:13 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/07 12:54:33 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,34 @@ t_list	*ft_lstnew(int content)
 	new->content = content;
 	new->next = NULL;
 	return (new);
+}
+int	ft_lstsize(t_list *lst)
+{
+	int	i;
+
+	i = 0;
+	while (lst)
+	{
+		i++;
+		if (!lst->next)
+			return (i);
+		lst = lst->next;
+	}
+	return (i);
+}
+void	ft_lstswap(t_list *number1, t_list *number2)
+{
+	int temp;
+	
+	temp = number1->content;
+	number1->content = number2->content;
+	number2->content = temp;
+}
+void	ft_lstadd_front(t_list **lst, t_list *new)
+{
+	if (new)
+	{
+		new->next = *lst;
+		*lst = new;
+	}
 }

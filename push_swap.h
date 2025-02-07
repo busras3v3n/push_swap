@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 12:53:37 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/06 17:10:31 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/07 12:54:06 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,15 @@ void	check_for_doubles(char **argv);
 void	check_for_invalid_char(char **argv);
 void	check_for_non_int(char **argv);
 int		is_sign(char c);
+int		ft_lstsize(t_list *lst);
+void	swap(t_list **stack);
+void	ft_lstadd_front(t_list **lst, t_list *new);
+t_list	*ft_lstlast(t_list *lst);
+void	push(t_list **from, t_list **to);
+void	rotate(t_list **stack);
+void	reverse_rotate(t_list **stack);
+void	both_swap(t_list **stack_a, t_list **stack_b);
+void	both_rotate(t_list **stack_a, t_list **stack_b);
+void	both_reverse(t_list **stack_a, t_list **stack_b);
 
 #endif

@@ -6,11 +6,11 @@
 #    By: busseven <busseven@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/22 09:59:40 by busseven          #+#    #+#              #
-#    Updated: 2025/02/06 17:07:20 by busseven         ###   ########.fr        #
+#    Updated: 2025/02/06 17:20:46 by busseven         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC 		= 	./push_swap.c ./utils.c ./format.c
+SRC 		= 	./push_swap.c ./utils.c ./format.c ./moves.c
 OBJS 		= $(SRC:.c=.o)
 NAME 		= push_swap
 CC			= cc

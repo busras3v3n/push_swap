@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 11:50:37 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/06 17:10:57 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/07 12:56:01 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,9 @@ int main(int argc, char **argv)
 		check_for_invalid_char(argv);
 		check_for_non_int(argv);
 		init_stacks(argv, a);
+		swap(a);
+		rotate(a);
+		rotate(a);
 		while(*a)
 		{
 			ft_printf("%d", (*a)->content);
