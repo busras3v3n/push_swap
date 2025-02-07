@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 12:53:37 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/07 14:19:46 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/07 18:36:15 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "./ft_printf/libft/libft.h"
 # include "./ft_printf/ft_printf.h"
+# include <unistd.h>
 
 t_list	*ft_lstnew(int content);
 void	ft_lstadd_back(t_list **lst, t_list *new);
@@ -33,5 +34,6 @@ void	reverse_rotate(t_list **stack, char *name);
 void	both_swap(t_list **stack_a, t_list **stack_b);
 void	both_rotate(t_list **stack_a, t_list **stack_b);
 void	both_reverse(t_list **stack_a, t_list **stack_b);
+t_list	*ft_beforelstlast(t_list *lst);
 
 #endif

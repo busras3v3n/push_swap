@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 17:04:50 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/06 17:05:45 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/07 16:39:31 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	check_for_doubles(char **argv)
 		{
 			if(i != n && ft_atoi(argv[i]) == ft_atoi(argv[n]))
 			{
-				ft_printf("doubles are forbidden\n");
+				write(2, "doubles are forbidden\n", 22);
 				exit(1);
 			}
 			n++;
@@ -76,7 +76,7 @@ void	check_for_invalid_char(char **argv)
 				;
 			else if(!ft_isdigit(argv[i][n]))
 			{
-				ft_printf("invalid character\n");
+				write(2, "invalid character\n", 18);
 			}
 			
 			n++;
@@ -93,7 +93,7 @@ void	check_for_non_int(char **argv)
 	{
 		if(!check_if_int(argv[i]))
 		{
-			ft_printf("non int argument\n");
+			write(2, "non int argument\n", 18);
 			exit(1);
 		}
 		i++;

@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 17:13:40 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/07 14:19:08 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/07 18:36:56 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,22 @@ void	swap(t_list **stack, char *name)
     	temp = (*stack)->content;
 		(*stack)->content = (*stack)->next->content;
 		(*stack)->next->content = temp;
+		temp = (*stack)->index;
+		(*stack)->index= (*stack)->next->index;
+		(*stack)->next->index = temp;
 	}
 	ft_printf("s%s\n", name);
 }
 void	push(t_list **from, t_list **to, char *to_name)
 {
 	t_list	*remove;
+	t_list	*new;
 
 	if(ft_lstsize(*from) > 0)
 	{
-		ft_lstadd_front(to, ft_lstnew((*from)->content));
+		new = ft_lstnew((*from)->content);
+		new->index = (*from)->index;
+		ft_lstadd_front(to, new);
 		remove = *from;
 		*from = (*from)->next;
 		free(remove);	
@@ -40,10 +46,13 @@ void	push(t_list **from, t_list **to, char *to_name)
 void	rotate(t_list **stack, char *name)
 {
 	t_list	*remove;
+	t_list	*new;
 
 	if(ft_lstsize(*stack) > 1)
 	{
-		ft_lstadd_back(stack, ft_lstnew((*stack)->content));
+		new = ft_lstnew((*stack)->content);
+		new->index = (*stack)->index;
+		ft_lstadd_back(stack, new);
 		remove = *stack;
 		*stack = (*stack)->next;
 		free(remove);	
@@ -53,10 +62,17 @@ void	rotate(t_list **stack, char *name)
 
 void	reverse_rotate(t_list **stack, char *name)
 {
+	t_list *new;
+	t_list *remove;
+	
 	if(ft_lstsize(*stack) > 1)
 	{
-		ft_lstadd_front(stack, ft_lstnew(ft_lstlast(*stack)->content));
-		free(ft_lstlast(*stack));
+		new = ft_lstnew(ft_lstlast(*stack)->content);
+		new->index = ft_lstlast(*stack)->index;
+		ft_lstadd_front(stack, new);
+		remove = ft_lstlast(*stack);
+		ft_beforelstlast(*stack)->next = NULL;
+		free(remove);
 	}
 	ft_printf("rr%s\n", name);
 }

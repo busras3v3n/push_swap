@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 15:03:53 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/07 14:18:34 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/07 18:36:02 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,16 @@ t_list	*ft_lstlast(t_list *lst)
 	if (!lst)
 		return (NULL);
 	while (lst->next != NULL)
+	{
+		lst = lst->next;
+	}
+	return (lst);
+}
+t_list	*ft_beforelstlast(t_list *lst)
+{
+	if (!lst)
+		return (NULL);
+	while (lst->next->next != NULL)
 	{
 		lst = lst->next;
 	}

@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 11:50:37 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/07 16:25:06 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/07 18:15:37 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,12 @@ void	init_stacks(char **argv, t_list **a)
 		i++;
 	}
 }
+void	error_handling(char **argv)
+{
+	check_for_doubles(argv);
+	check_for_invalid_char(argv);
+	check_for_non_int(argv);
+}
 
 int main(int argc, char **argv)
 {
@@ -52,10 +58,9 @@ int main(int argc, char **argv)
 	a = ft_calloc(1, sizeof(t_list));
 	if(argc >= 2)
 	{
-		check_for_doubles(argv);
-		check_for_invalid_char(argv);
-		check_for_non_int(argv);
+		error_handling(argv);
 		init_stacks(argv, a);
+		reverse_rotate(a, "a");
 		while(*a)
 		{
 			ft_printf("%d : %d\n", (*a)->content, (*a)->index);
@@ -63,5 +68,5 @@ int main(int argc, char **argv)
 		}
 	}
 	else
-		ft_printf("Error\nno arguments\n");
+		write(2, "Error\nno arguments\n", 19);
 }
