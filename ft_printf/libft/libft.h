@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 13:52:21 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/06 15:06:46 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/07 13:28:43 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 typedef struct s_list
 {
 	int				content;
-	int				i;
+	int				index;
 	struct s_list	*next;
 }	t_list;
 

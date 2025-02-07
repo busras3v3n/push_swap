@@ -6,21 +6,39 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 11:50:37 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/07 12:56:01 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/07 14:17:25 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+int		set_index(int content, t_list **a)
+{
+	int i;
+
+	i = 0;
+	while(*a)
+	{
+		if(content > (*a)->content)
+			i++;
+		else if(content < (*a)->content)
+			(*a)->index++;
+		*a = (*a)->next;
+	}
+}
 void	init_stacks(char **argv, t_list **a)
 {
 	int i;
+	int content;
 	t_list	*new;
 
 	i = 1;
 	while(argv[i])
 	{
-		new = ft_lstnew(ft_atoi(argv[i]));
+		content = ft_atoi(argv[i]);
+		new = ft_lstnew(content);
+		if(i != 1)
+			new->index = set_index(content, a);
 		ft_lstadd_back(a, new);
 		i++;
 	}
