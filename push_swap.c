@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 11:50:37 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/07 20:20:53 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/10 11:40:33 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ void	init_stacks(char **argv, t_list **a)
 	{
 		content = ft_atoi(argv[i]);
 		new = ft_lstnew(content);
-		if(i != 1)
-			new->index = set_index(content, *a);
+		new->index = set_index(content, *a);
+		new->real_index = i - 1;
 		ft_lstadd_back(a, new);
 		i++;
 	}
@@ -60,10 +60,9 @@ int main(int argc, char **argv)
 	{
 		error_handling(argv);
 		init_stacks(argv, a);
-		rotate(a, "a");
 		while(*a)
 		{
-			ft_printf("%d : %d\n", (*a)->content, (*a)->index);
+			ft_printf("%d : %d : %d\n", (*a)->content, (*a)->real_index, (*a)->index);
 			*a = (*a)->next;
 		}
 	}
