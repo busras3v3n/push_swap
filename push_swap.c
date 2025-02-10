@@ -6,17 +6,34 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 11:50:37 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/10 17:08:21 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/10 19:56:59 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+void	push_to_a(int real_index, t_list **a, t_list **b)
+{
+	int size;
+	int i;
+	
+	(void)a;
+	size = ft_lstsize(*b);
+	i = (size / 2) - 1;
+	while(i > 0)
+	{
+		if(real_index > size / 2)
+			reverse_rotate(b, "b");
+		else
+			rotate(b, "b");
+		i--;
+	}
+}
 int		all_bigger_than_pivot(t_list *a, int pivot)
 {
 	while(a)
 	{
-		if(a->index <= pivot)
+		if(a->index < pivot)
 			return(0);
 		a = a->next;
 	}
@@ -29,7 +46,7 @@ void	push_small_half_to_b(t_list **a, t_list **b)
 	pivot = (find_biggest(a) + find_smallest(a)) / 2;
 	while(*a && (*a)->index != -1 && !all_bigger_than_pivot(*a, pivot))
 	{
-		if((*a)->index <= pivot)
+		if((*a)->index < pivot)
 			push(a, b, "b");
 		else
 			rotate(a, "a");
@@ -37,10 +54,14 @@ void	push_small_half_to_b(t_list **a, t_list **b)
 }
 void	quick_sort(t_list **a, t_list **b)
 {
+	t_list *temp;
+
+	temp = *b;
 	while(ft_lstsize(*a) > 3)
 		push_small_half_to_b(a, b);
-	tiny_sort(b, "b", ft_lstsize(*b));
-	tiny_sort(a, "a", ft_lstsize(*a));
+	tiny_sort(a, "a", 3);
+	set_real_index(b);
+	push_to_a(2, a, b);
 	while(*a)
 	{
 		ft_printf("a: %d : %d : %d\n", (*a)->content, (*a)->real_index, (*a)->index);

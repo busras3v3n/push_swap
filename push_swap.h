@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 12:53:37 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/10 16:28:53 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/10 19:31:39 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,9 @@ void	both_swap(t_list **stack_a, t_list **stack_b);
 void	both_rotate(t_list **stack_a, t_list **stack_b);
 void	both_reverse(t_list **stack_a, t_list **stack_b);
 t_list	*ft_beforelstlast(t_list *lst);
-int	find_biggest(t_list **stack);
-int	find_smallest(t_list **stack);
+int		find_biggest(t_list **stack);
+int		find_smallest(t_list **stack);
 void	tiny_sort(t_list **a, char *name, int count);
+void	set_real_index(t_list **stack);
 
 #endif
