@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 12:18:37 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/10 11:12:26 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/10 16:02:09 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 void	two_sort(t_list **s, char *name)
 {
-	swap(s, name);
+	if((*s)->index > (*s)->next->index)
+		swap(s, name);
 }
 
 void	three_sort(t_list **s, char *name)
