@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 11:50:37 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/11 12:53:05 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/11 13:52:04 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,8 @@ void	sort_b(t_list **b, t_list **a)
 		}
 		push(b, a, "a");
 		rotate(a, "a");
+		ft_lstlast(*a)->index = -1;
 	}
-	rotate(a, "a");
-	rotate(a, "a");
-	rotate(a, "a");
 }
 int		all_bigger_than_pivot(t_list *a, int pivot)
 {
@@ -70,7 +68,7 @@ void	push_small_half_to_b(t_list **a, t_list **b)
 	int pivot;
 
 	pivot = (find_biggest(a) + find_smallest(a)) / 2;
-	ft_printf("pivot : %d\n", pivot);
+	ft_printf("pivot: %d\n", pivot);
 	while(*a && (*a)->index != -1 && !all_bigger_than_pivot(*a, pivot))
 	{
 		if((*a)->index < pivot)
@@ -80,11 +78,17 @@ void	push_small_half_to_b(t_list **a, t_list **b)
 	}
 	set_real_index(b);
 }
-void	quick_sort(t_list **a, t_list **b)
+void	quick_sort(t_list **a)
 {
-	while(ft_lstsize(*a) > 3)
-		push_small_half_to_b(a, b);
 	tiny_sort(a, "a", 3);
+}
+void	sort(t_list **a, t_list **b, int count)
+{
+	if(count == 2 || count == 3)
+		tiny_sort(a, "a", count);
+	else
+		quick_sort(a);
+	push_small_half_to_b(a, b);
 	sort_b(b, a);
 	while(*a)
 	{
@@ -96,13 +100,7 @@ void	quick_sort(t_list **a, t_list **b)
 		ft_printf("b: %d : %d : %d\n", (*b)->content, (*b)->real_index, (*b)->index);
 		*b = (*b)->next;
 	}
-}
-void	sort(t_list **a, t_list **b, int count)
-{
-	if(count == 2 || count == 3)
-		tiny_sort(a, "a", count);
-	else
-		quick_sort(a, b);
+
 }
 
 int	find_smallest(t_list **stack)
