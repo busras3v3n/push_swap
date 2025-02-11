@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 13:52:21 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/10 11:37:37 by busseven         ###   ########.fr       */
+/*   Updated: 2024/12/23 12:52:02 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,7 @@
 
 typedef struct s_list
 {
-	int				content;
-	int				index;
-	int				real_index;
+	void			*content;
 	struct s_list	*next;
 }	t_list;
 
@@ -60,11 +58,15 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
+t_list	*ft_lstnew(void *content);
+void	ft_lstadd_front(t_list **lst, t_list *new);
+t_list	*ft_lstlast(t_list *lst);
+int		ft_lstsize(t_list *lst);
+void	ft_lstadd_back(t_list **lst, t_list *new);
+void	ft_lstdelone(t_list *lst, void (*del)(void*));
+void	ft_lstclear(t_list **lst, void (*del)(void*));
+void	ft_lstiter(t_list *lst, void (*f)(void *));
 char	*get_next_line(int fd);
-char	*ft_join(char	*str, char	*joining);
-char	*new_buffer(char	*buffer);
-char	*ft_read_file(int fd, char	*str);
-int		ft_findnewline(char *str);
 char	*ft_join(char	*str, char	*joining);
 
 #endif

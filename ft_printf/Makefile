@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: busseven <busseven@student.42.fr>          +#+  +:+       +#+         #
+#    By: busseven <busras3v3n@proton.me>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/05 10:55:22 by busseven          #+#    #+#              #
-#    Updated: 2025/02/06 15:04:06 by busseven         ###   ########.fr        #
+#    Updated: 2024/11/09 17:14:07 by busseven         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ $(NAME): $(OBJS)
 	ar -rcs $(NAME) $(OBJS)
 
 $(LIBFT):
-	make -C ./libft all
+	make -C ./libft all 
 
 %.o: %.c
 	cc -c -Wall -Wextra -Werror $< -o $@ 
