@@ -6,28 +6,12 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 11:50:37 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/12 13:41:47 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/12 13:47:58 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	check_format(char **ints)
-{
-	check_for_invalid_char(ints);
-	check_for_non_int(ints);
-	check_for_doubles(ints);
-	return(0);
-}
-int	get_2d_length(char **arr)
-{
-	int	i;
-	
-	i = 0;
-	while(arr[i])
-		i++;
-	return(i);
-}
 int	check_number_count(char **argv)
 {
 	int count;

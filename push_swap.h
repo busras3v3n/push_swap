@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 12:53:37 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/12 13:24:32 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/12 13:51:10 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,12 @@
 # include "./ft_printf/libft/libft.h"
 # include "./ft_printf/ft_printf.h"
 # include <unistd.h>
+
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}	t_list;
 
 typedef struct s_data
 {
@@ -27,4 +33,5 @@ typedef struct s_data
 void check_for_invalid_char(char **ints);
 void check_for_non_int(char **ints);
 void check_for_doubles(char **ints);
+int	get_2d_length(char **arr);
 #endif
