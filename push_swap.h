@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 12:53:37 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/12 14:18:38 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/12 14:20:16 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ typedef struct s_data
 void check_for_invalid_char(char **ints, t_data *data);
 void check_for_non_int(char **ints, t_data *data);
 void check_for_doubles(char **ints, t_data *data);
-int	get_2d_length(char **arr);
+int		get_2d_length(char **arr);
 void	free_data_exit(t_data	*data);
 void	free_2d_arr(char **arr);
 #endif
