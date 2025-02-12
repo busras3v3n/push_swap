@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:25:00 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/12 18:15:24 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/12 18:22:57 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,20 +39,17 @@ int	find_biggest_lower_than(t_list *stack, int x)
 	return(max);
 }
 
-void	set_real_index(t_list **stack)
+void	set_real_index(t_list *stack)
 {
 	int i;
-	t_list *temp;
 
 	i = 0;
-	temp = *stack;
-	while(*stack)
+	while(stack)
 	{
-		(*stack)->position = i;
+		stack->position = i;
 		i++;
-		*stack = (*stack)->next;
+		stack = stack->next;
 	}
-	*stack = temp;
 }
 
 void	ft_lstswap(t_list *number1, t_list *number2)

@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 11:50:37 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/12 18:17:02 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/12 18:23:43 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	init_data(t_data *data, char **argv)
 	data->a = ft_calloc(1, sizeof(t_list **));
 	data->b = ft_calloc(1, sizeof(t_list **));
 	put_nodes_in_a(data->a, data->numbers);
-	set_real_index(data->a);
+	set_real_index(data->a[0]);
 }
 int main(int argc, char **argv)
 {

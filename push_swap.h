@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 12:53:37 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/12 18:15:30 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/12 18:23:02 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ t_list	*ft_lstnew(int content);
 int	ft_lstsize(t_list *lst);
 void	ft_lstswap(t_list *number1, t_list *number2);
 void	ft_lstadd_front(t_list **lst, t_list *new);
-void	set_real_index(t_list **stack);
+void	set_real_index(t_list *stack);
 void	swap(t_list **stack, char *name);
 void	push(t_list **from, t_list **to, char *to_name);
 void	rotate(t_list **stack, char *name);
