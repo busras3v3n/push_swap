@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 12:53:37 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/11 18:02:36 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/12 13:24:32 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,14 @@
 # include "./ft_printf/ft_printf.h"
 # include <unistd.h>
 
-typedef struct data
+typedef struct s_data
 {
-	int	size_a;
-	int	size_b;
-	int	*stack_a;
-	int	*stack_b;
-	int	*target_a;
-	int	cost;
-	int	rr;
-	int	rrr;
+	t_list	*a;
+	t_list	*b;
+	char	**numbers;
 }	t_data;
+
+void check_for_invalid_char(char **ints);
+void check_for_non_int(char **ints);
+void check_for_doubles(char **ints);
 #endif

@@ -6,12 +6,18 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 17:04:50 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/10 13:36:23 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/12 13:34:57 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+int	is_sign(char c)
+{
+	if(c == '-' || c == '+')
+		return(1);
+	return(0);
+}
 int	check_if_int(char *str)
 {
 	char *cmp;
@@ -77,6 +83,7 @@ void	check_for_invalid_char(char **argv)
 			else if(!ft_isdigit(argv[i][n]))
 			{
 				write(2, "invalid character\n", 18);
+				exit(1);
 			}
 			
 			n++;
