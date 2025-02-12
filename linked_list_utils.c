@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 13:48:16 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/12 13:50:16 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/12 14:25:20 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,14 +67,6 @@ int	ft_lstsize(t_list *lst)
 		lst = lst->next;
 	}
 	return (i);
-}
-void	ft_lstswap(t_list *number1, t_list *number2)
-{
-	int temp;
-	
-	temp = number1->content;
-	number1->content = number2->content;
-	number2->content = temp;
 }
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {

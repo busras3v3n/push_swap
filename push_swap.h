@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 12:53:37 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/12 14:20:16 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/12 14:24:29 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,11 @@ void check_for_doubles(char **ints, t_data *data);
 int		get_2d_length(char **arr);
 void	free_data_exit(t_data	*data);
 void	free_2d_arr(char **arr);
+t_list	*ft_beforelstlast(t_list *lst);
+t_list	*ft_lstlast(t_list *lst);
+void	ft_lstadd_back(t_list **lst, t_list *new);
+t_list	*ft_lstnew(int content);
+int	ft_lstsize(t_list *lst);
+void	ft_lstswap(t_list *number1, t_list *number2);
+void	ft_lstadd_front(t_list **lst, t_list *new);
 #endif
