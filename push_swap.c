@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 11:50:37 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/12 14:18:25 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/12 15:01:17 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,49 @@ void	check_arguments(char **numbers, t_data *data)
 	check_for_non_int(numbers, data);
 	check_for_doubles(numbers, data);
 }
+int		set_index(int content, t_list *a)
+{
+	int i;
+
+	i = 0;
+	while(a)
+	{
+		if(content > a->content)
+			i++;
+		else if(content < a->content)
+			(a->index)++;
+		a = a->next;
+	}
+	return(i);
+}
+
+void	put_nodes_in_a(t_list **a, char **numbers)
+{
+	t_list *new;
+	int	i;
+
+	i = 0;
+	while(numbers[i])
+	{
+		new = ft_lstnew(ft_atoi(numbers[i]));
+		new->index = set_index(new->content, *a);
+		new->target = -1;
+		new->cost = -1;
+		new->position = -1;
+		new->direction = -1;
+		new->is_first = -1;
+		ft_lstadd_back(a, new);
+		i++;
+	}
+}
+void	init_data(t_data *data, char **argv)
+{
+	init_data_numbers(argv, data);
+	check_arguments(data->numbers, data);
+	data->a = ft_calloc(1, sizeof(t_list **));
+	data->b = ft_calloc(1, sizeof(t_list **));
+	put_nodes_in_a(data->a, data->numbers);
+}
 int main(int argc, char **argv)
 {
 	t_data *data;
@@ -68,8 +111,7 @@ int main(int argc, char **argv)
 	data = ft_calloc(1, sizeof(t_data));
 	if(argc >= 2)
 	{
-		init_data_numbers(argv, data);
-		check_arguments(data->numbers, data);
+		init_data(data, argv);
 		while(data->numbers[i])
 		{
 			ft_printf("%s", data->numbers[i]);

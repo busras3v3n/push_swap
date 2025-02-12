@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 12:53:37 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/12 14:24:29 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/12 15:02:33 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ typedef struct s_list
 
 typedef struct s_data
 {
-	t_list	*a;
-	t_list	*b;
+	t_list	**a;
+	t_list	**b;
 	char	**numbers;
 }	t_data;
 
@@ -49,4 +49,5 @@ t_list	*ft_lstnew(int content);
 int	ft_lstsize(t_list *lst);
 void	ft_lstswap(t_list *number1, t_list *number2);
 void	ft_lstadd_front(t_list **lst, t_list *new);
+void	set_real_index(t_list **stack);
 #endif
