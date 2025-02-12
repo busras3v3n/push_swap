@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 11:50:37 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/12 13:47:58 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/12 14:18:25 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	check_number_count(char **argv)
 	{
 		temp = ft_split(argv[i], ' ');
 		count += get_2d_length(temp);
-		free(temp);
+		free_2d_arr(temp);
 		i++;
 	}
 	return(count);
@@ -53,11 +53,11 @@ void	init_data_numbers(char **argv, t_data *data)
 		i++;
 	}	
 }
-void	check_arguments(char **numbers)
+void	check_arguments(char **numbers, t_data *data)
 {
-	check_for_invalid_char(numbers);
-	check_for_non_int(numbers);
-	check_for_doubles(numbers);
+	check_for_invalid_char(numbers, data);
+	check_for_non_int(numbers, data);
+	check_for_doubles(numbers, data);
 }
 int main(int argc, char **argv)
 {
@@ -69,7 +69,7 @@ int main(int argc, char **argv)
 	if(argc >= 2)
 	{
 		init_data_numbers(argv, data);
-		check_arguments(data->numbers);
+		check_arguments(data->numbers, data);
 		while(data->numbers[i])
 		{
 			ft_printf("%s", data->numbers[i]);
