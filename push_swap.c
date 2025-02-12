@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 11:50:37 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/12 17:55:52 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/12 18:17:02 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,13 @@ int main(int argc, char **argv)
 	{
 		init_data(data, argv);
 		turk(data);
-		while(*(data->a))
+		while(data->a[0])
 		{
 			ft_printf("number: %d, index: %d, target_index: %d\n", data->a[0]->content, data->a[0]->index, data->a[0]->target);
 			data->a[0] = data->a[0]->next;
 		}
 		ft_printf("\n");
-		while(*(data->b))
+		while(data->b[0])
 		{
 			ft_printf("number: %d, index: %d, target_index: %d\n", data->b[0]->content, data->b[0]->index, data->b[0]->target);
 			data->b[0] = data->b[0]->next;

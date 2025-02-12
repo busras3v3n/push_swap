@@ -6,26 +6,36 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:25:00 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/12 17:34:14 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/12 18:15:24 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	find_biggest(t_list **stack)
+int	find_biggest(t_list *stack)
 {
 	int max;
-	t_list *temp;
 
-	temp = *stack;
 	max = 0;
-	while(*stack && (*stack)->index != -1)
+	while(stack && stack->index != -1)
 	{
-		if(max < (*stack)->index)
-			max = (*stack)->index;
-		*stack = (*stack)->next;
+		if(max < stack->index)
+			max = stack->index;
+		stack = stack->next;
 	}
-	*stack = temp;
+	return(max);
+}
+int	find_biggest_lower_than(t_list *stack, int x)
+{
+	int max;
+
+	max = 0;
+	while(stack && stack->index != -1)
+	{
+		if(max < stack->index && stack->index < x)
+			max = stack->index;
+		stack = stack->next;
+	}
 	return(max);
 }
 

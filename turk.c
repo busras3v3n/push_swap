@@ -6,26 +6,23 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 17:15:36 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/12 17:59:03 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/12 18:11:26 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		count_targets(t_list *a, t_list **b)
+int		count_targets(t_list *a, t_list *b)
 {
-	t_list *temp;
-	int count;
+	int	count;
 
 	count = 0;
-	temp = *b;
-	while(*b)
+	while(b)
 	{
-		if((*b)->index < a->index)
+		if(b->index < a->index)
 			count++;
-		(*b) = (*b)->next;
+		b = b->next;
 	}
-	*b = temp;
 	return(count);
 }
 int		find_biggest_arr(int *arr)
@@ -47,31 +44,15 @@ void	set_target(t_list *a, t_list **b)
 {
 	t_list *temp;
 	int i;
-	int *potential_targets;
 	int count;
 
 	temp = *b;
 	i = 0;
-	count = count_targets(a, b);
+	count = count_targets(a, *b);
 	if(count == 0)
-	{
-		potential_targets = NULL;
-		a->target = find_biggest(b);
-	}
+		a->target = find_biggest(*b);
 	else
-	{
-		potential_targets = ft_calloc(count, sizeof(int));
-		while(*b)
-		{
-			if((*b)->index < a->index)
-				potential_targets[i] = (*b)->index;
-			(*b) = (*b)->next;
-			i++;
-		}
-		*b = temp;
-		a->target = find_biggest_arr(potential_targets);
-	}
-	free(potential_targets);
+		a->target = find_biggest_lower_than(*b, a->index);
 }
 void	set_costs(t_list **a, t_list **b)
 {
