@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 17:04:50 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/12 13:34:57 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/12 13:42:26 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	check_for_doubles(char **argv)
 	int i;
 	int	n;
 
-	i = 1;
+	i = 0;
 	while(argv[i])
 	{
 		n = 1;
@@ -72,7 +72,7 @@ void	check_for_invalid_char(char **argv)
 	int i;
 	int n;
 
-	i = 1;
+	i = 0;
 	while(argv[i])
 	{
 		n = 0;
@@ -95,7 +95,7 @@ void	check_for_non_int(char **argv)
 {
 	int i;
 
-	i = 1;
+	i = 0;
 	while(argv[i])
 	{
 		if(!check_if_int(argv[i]))

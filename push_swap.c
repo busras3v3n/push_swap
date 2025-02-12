@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 11:50:37 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/12 13:33:50 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/12 13:41:47 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,12 +78,19 @@ void	check_arguments(char **numbers)
 int main(int argc, char **argv)
 {
 	t_data *data;
+	int i;
+	i = 0;
 
 	data = ft_calloc(1, sizeof(t_data));
 	if(argc >= 2)
 	{
 		init_data_numbers(argv, data);
 		check_arguments(data->numbers);
+		while(data->numbers[i])
+		{
+			ft_printf("%s", data->numbers[i]);
+			i++;
+		}
 	}
 	else
 		write(2, "Error\nno arguments\n", 19);
