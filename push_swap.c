@@ -6,11 +6,12 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 11:50:37 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/12 15:08:50 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/12 17:09:48 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
 
 void	init_data(t_data *data, char **argv)
 {
@@ -36,6 +37,7 @@ int main(int argc, char **argv)
 			ft_printf("%s", data->numbers[i]);
 			i++;
 		}
+		free_data_exit(data);
 	}
 	else
 		write(2, "Error\nno arguments\n", 19);

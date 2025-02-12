@@ -6,12 +6,24 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 13:48:03 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/12 14:17:07 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/12 17:12:25 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+void	free_list(t_list **lst)
+{
+	t_list *next;
+
+	while(*lst)
+	{
+		next = (*lst)->next;
+		free(*lst);
+		*lst = next;
+	}
+	free(lst);
+}
 void	free_2d_arr(char **arr)
 {
 	int	i;
@@ -26,9 +38,9 @@ void	free_2d_arr(char **arr)
 void	free_data_exit(t_data	*data)
 {
 	if(data->a)
-		free(data->a);
+		free_list(data->a);
 	if(data->b)
-		free(data->b);
+		free_list(data->b);
 	if(data->numbers)
 		free_2d_arr(data->numbers);
 	if(data)

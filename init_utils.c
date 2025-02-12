@@ -6,9 +6,11 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 15:07:54 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/12 15:08:57 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/12 17:09:02 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "push_swap.h"
 
 int	check_number_count(char **argv)
 {

@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 12:53:37 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/12 15:06:02 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/12 17:08:44 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,9 @@ void	swap(t_list **stack, char *name);
 void	push(t_list **from, t_list **to, char *to_name);
 void	rotate(t_list **stack, char *name);
 void	reverse_rotate(t_list **stack, char *name);
+void	put_nodes_in_a(t_list **a, char **numbers);
+void	init_data_numbers(char **argv, t_data *data);
+void	check_arguments(char **numbers, t_data *data);
+t_list	*ft_lstnew(int content);
 
 #endif
