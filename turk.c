@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 17:15:36 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/13 13:23:40 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/13 18:42:29 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int		count_targets(t_list *a, t_list *b)
 	count = 0;
 	while(b)
 	{
-		if(b->index < a->index)
+		if((b->index) < (a->index))
 			count++;
 		b = b->next;
 	}
@@ -93,7 +93,7 @@ t_list	*set_target(t_list *a, t_list **b)
 		a->target = find_biggest_lower_than(*b, a->index);
 	return(a->target);
 }
-void	set_attributes(t_list **a, t_list **b, t_data *data)
+void	set_attributes(t_list **a, t_list **b)
 {
 	t_list *temp;
 
@@ -101,7 +101,6 @@ void	set_attributes(t_list **a, t_list **b, t_data *data)
 	while(*a)
 	{
 		(*a)->target = set_target(*a, b);
-		(*a)->cost = set_costs(*a, *b, data);
 		*a = (*a)->next;
 	}
 	*a = temp;
@@ -110,5 +109,5 @@ void	turk(t_data *data)
 {
 	push(data->a, data->b, "b");
 	push(data->a, data->b, "b");
-	set_attributes(data->a, data->b, data);
+	set_attributes(data->a, data->b);
 }
