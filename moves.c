@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:21:06 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/12 18:23:14 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/13 13:10:41 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ void	push(t_list **from, t_list **to, char *to_name)
 	}
 	set_real_index(*from);
 	set_real_index(*to);
+	set_lstsizes(from);
+	set_lstsizes(to);
 	ft_printf("p%s\n", to_name);
 }
 void	rotate(t_list **stack, char *name)

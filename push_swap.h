@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 12:53:37 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/13 12:48:43 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/13 13:10:50 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,13 @@ typedef struct s_list
 {
 	int				content;
 	int				index;
-	struct s_list				*target;
+	struct s_list	*target;
+	int				x;
+	int				y;
+	int				rr;
+	int				rrr;
 	int				cost;
+	int				size;
 	int				position;
 	int				direction;
 	int				is_first;
