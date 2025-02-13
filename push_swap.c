@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 11:50:37 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/12 18:23:43 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/13 12:51:57 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ void	init_data(t_data *data, char **argv)
 int main(int argc, char **argv)
 {
 	t_data *data;
-	int i;
-	i = 0;
 
 	data = ft_calloc(1, sizeof(t_data));
 	if(argc >= 2)
@@ -35,13 +33,13 @@ int main(int argc, char **argv)
 		turk(data);
 		while(data->a[0])
 		{
-			ft_printf("number: %d, index: %d, target_index: %d\n", data->a[0]->content, data->a[0]->index, data->a[0]->target);
+			ft_printf("number: %d, index: %d, target_index: %d\n", data->a[0]->content, data->a[0]->index, data->a[0]->target->index);
 			data->a[0] = data->a[0]->next;
 		}
 		ft_printf("\n");
 		while(data->b[0])
 		{
-			ft_printf("number: %d, index: %d, target_index: %d\n", data->b[0]->content, data->b[0]->index, data->b[0]->target);
+			ft_printf("number: %d, index: %d\n", data->b[0]->content, data->b[0]->index);
 			data->b[0] = data->b[0]->next;
 		}
 		free_data_exit(data);

@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 15:07:54 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/12 17:09:02 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/13 12:51:00 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void	put_nodes_in_a(t_list **a, char **numbers)
 	{
 		new = ft_lstnew(ft_atoi(numbers[i]));
 		new->index = set_index(new->content, *a);
-		new->target = -1;
+		new->target = NULL;
 		new->cost = -1;
 		new->position = -1;
 		new->direction = -1;

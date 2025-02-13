@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 12:53:37 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/12 18:23:02 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/13 12:48:43 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ typedef struct s_list
 {
 	int				content;
 	int				index;
-	int				target;
+	struct s_list				*target;
 	int				cost;
 	int				position;
 	int				direction;
@@ -58,8 +58,8 @@ void	put_nodes_in_a(t_list **a, char **numbers);
 void	init_data_numbers(char **argv, t_data *data);
 void	check_arguments(char **numbers, t_data *data);
 t_list	*ft_lstnew(int content);
-int		find_biggest(t_list *stack);
+t_list	*find_biggest(t_list *stack);
 void	turk(t_data *data);
-int	find_biggest_lower_than(t_list *stack, int x);
+t_list  *find_biggest_lower_than(t_list *stack, int x);
 
 #endif

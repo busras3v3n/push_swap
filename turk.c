@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 17:15:36 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/12 18:11:26 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/13 12:50:38 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,19 +40,16 @@ int		find_biggest_arr(int *arr)
 	}
 	return(max);
 }
-void	set_target(t_list *a, t_list **b)
+t_list	*set_target(t_list *a, t_list **b)
 {
-	t_list *temp;
-	int i;
 	int count;
 
-	temp = *b;
-	i = 0;
 	count = count_targets(a, *b);
 	if(count == 0)
 		a->target = find_biggest(*b);
 	else
 		a->target = find_biggest_lower_than(*b, a->index);
+	return(a->target);
 }
 void	set_costs(t_list **a, t_list **b)
 {
@@ -61,7 +58,7 @@ void	set_costs(t_list **a, t_list **b)
 	temp = *a;
 	while(*a)
 	{
-		set_target(*a, b);
+		(*a)->target = set_target(*a, b);
 		*a = (*a)->next;
 	}
 	*a = temp;
