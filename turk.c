@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 17:15:36 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/14 15:18:11 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/14 15:41:19 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,5 @@ void	turk(t_data *data)
 		get_nodes_to_top(data, cheapest, cheapest->target);
 		push(data->a, data->b, "a");
 	}
+	ft_printf("%d\n", check_ordered(*(data->b)));
 }
