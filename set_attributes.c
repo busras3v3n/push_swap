@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 10:02:32 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/14 10:07:01 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/14 13:12:23 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ int		set_costs(t_list *a, t_list *b)
 	ind_cost = calc_ind_cost(a, b);
 	rr_cost = calc_rr_cost(a, b);
 	rrr_cost = calc_rrr_cost(a, b);
-	if(ind_cost <= rr_cost && ind_cost <= rrr_cost)
+	if((ind_cost <= rr_cost) && (ind_cost <= rrr_cost))
 		return(pick_cost(a, 0, 0, ind_cost));
-	else if(rrr_cost <= rr_cost && rrr_cost <= ind_cost)
+	else if((rrr_cost <= rr_cost) && (rrr_cost <= ind_cost))
 		return(pick_cost(a, 0, 1, rrr_cost));
 	else
 		return(pick_cost(a, 1, 0, rr_cost));
