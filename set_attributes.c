@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 10:02:32 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/14 13:12:23 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/14 15:24:25 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ int		set_costs(t_list *a, t_list *b)
 	int	rrr_cost;
 
 	set_distances(a, b);
-	set_directions(a, b);
 	ind_cost = calc_ind_cost(a, b);
 	rr_cost = calc_rr_cost(a, b);
 	rrr_cost = calc_rrr_cost(a, b);

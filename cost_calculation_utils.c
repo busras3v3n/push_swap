@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 10:01:10 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/14 10:06:46 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/14 15:15:21 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,11 @@ void	set_distances(t_list *a, t_list *b)
 }
 void	set_directions(t_list *a, t_list *b)
 {
-	if(a->position <= a->size / 2)
+	if((a->position) <= (a->size / 2))
 		a->direction = 0;
 	else
 		a->direction = 1;
-	if(b->position <= a->size / 2)
+	if((b->position) <= (a->size / 2))
 		b->direction = 0;
 	else
 		b->direction = 1;

@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 11:50:37 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/14 13:01:01 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/14 15:24:48 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	init_data(t_data *data, char **argv)
 	put_nodes_in_a(data->a, data->numbers);
 	set_real_index(data->a[0]);
 	set_lstsizes(data->a);
+	set_directions_list(*(data->a));
 }
 int main(int argc, char **argv)
 {

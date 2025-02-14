@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 09:59:18 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/14 13:07:28 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/14 15:23:13 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,15 @@ t_list	*find_cheapest_node(t_list *stack)
 			comp = comp->next;
 	}
 	return(stack);
+}
+void	set_directions_list(t_list *a)
+{
+	while(a)
+	{
+		if((a->position) <= (a->size / 2))
+			a->direction = 0;
+		else
+			a->direction = 1;
+		a = a->next;
+	}
 }
