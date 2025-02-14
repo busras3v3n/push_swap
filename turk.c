@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 17:15:36 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/14 09:43:09 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/14 09:57:31 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,20 +71,29 @@ void	set_lstsizes(t_list **stack)
 	}
 	*stack = start;
 }
+int	pick_cost(t_list *a, int rr, int rrr, int cost)
+{
+	a->rr = rr;
+	a->rrr = rrr;
+	return(cost);
+}
 int		set_costs(t_list *a, t_list *b)
 {
-	int	individual_cost;
+	int	ind_cost;
 	int rr_cost;
 	int	rrr_cost;
 
 	set_distances(a, b);
 	set_directions(a, b);
-	individual_cost = calc_ind_cost(a, b);
+	ind_cost = calc_ind_cost(a, b);
 	rr_cost = calc_rr_cost(a, b);
 	rrr_cost = calc_rrr_cost(a, b);
-	(void)individual_cost;
-	(void)rr_cost;
-	return(rrr_cost);
+	if(ind_cost <= rr_cost && ind_cost <= rrr_cost)
+		return(pick_cost(a, 0, 0, ind_cost));
+	else if(rrr_cost <= rr_cost && rrr_cost <= ind_cost)
+		return(pick_cost(a, 0, 1, rrr_cost));
+	else
+		return(pick_cost(a, 1, 0, rr_cost));
 }
 int		count_targets(t_list *a, t_list *b)
 {
