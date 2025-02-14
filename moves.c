@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:21:06 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/14 19:32:43 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/14 19:49:06 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,20 +62,35 @@ void	rotate(t_list **stack, char *name)
 	*stack = temp;
 	ft_printf("rr%s\n", name);
 }
+t_list	*previous_node(t_list **list, t_list *node)
+{
+	t_list *temp;
+	t_list	*ret;
 
+	temp = *list;
+	while(*list)
+	{
+		if((*list)->next == node)
+		{
+			ret = *list;
+			*list = temp;
+			return(ret);
+		}
+		*list = (*list)->next;
+	}
+	ret = *list;
+	*list = temp;
+	return(NULL);
+}
 void	reverse_rotate(t_list **stack, char *name)
 {
-	t_list *new;
-	t_list *remove;
-	
-	if(ft_lstsize(*stack) > 1)
+	t_list *last;
+
+	last = ft_lstlast(*stack);
+	while(last->position != 0)
 	{
-		new = ft_lstnew(ft_lstlast(*stack)->content);
-		new->index = ft_lstlast(*stack)->index;
-		ft_lstadd_front(stack, new);
-		remove = ft_lstlast(*stack);
-		ft_beforelstlast(*stack)->next = NULL;
-		free(remove);
+		ft_lstswap(last, previous_node(stack, last));
+		last = previous_node(stack, last);
 	}
 	ft_printf("rr%s\n", name);
 }
