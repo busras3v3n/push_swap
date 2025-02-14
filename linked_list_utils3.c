@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 09:59:18 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/14 15:54:09 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/14 16:16:51 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int		check_ordered(t_list *a)
 
 	min = find_smallest(a);
 	start = min->next;
-	while(start && (start->index != min->index))
+	while((start) && (start->index != min->index))
 	{
 		if(!start->next)
 		{
