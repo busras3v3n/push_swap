@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 12:53:37 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/14 15:41:33 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/14 19:52:35 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,5 +79,7 @@ void	both_reverse(t_list **stack_a, t_list **stack_b);
 void	set_directions_list(t_list *a);
 t_list	*find_smallest(t_list *stack);
 int		check_ordered(t_list *a);
+int		check_ordered_circular(t_list *a);
+int		check_ordered_linear(t_list *a);
 
 #endif
