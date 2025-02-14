@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 17:15:36 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/13 18:42:29 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/14 09:29:08 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ int		calc_ind_cost(t_list *a, t_list *b)
 	int	b_cost;
 
 	if(a->direction == 0)
-		a_cost = a->x
+		a_cost = a->x;
 	else
 		a_cost = a->y + 1;
 	if(b->direction == 0)
-		b_cost = b->x
+		b_cost = b->x;
 	else
 		b_cost = b->y + 1;
 	return(a_cost + b_cost);
@@ -32,7 +32,7 @@ void	set_distances(t_list *a, t_list *b)
 	a->x = a->position;
 	a->y = a->size - a->position - 1;
 	b->x = b->position;
-	b->y = b->size - a->position - 1;	
+	b->y = b->size - b->position - 1;	
 }
 void	set_directions(t_list *a, t_list *b)
 {
@@ -57,17 +57,14 @@ void	set_lstsizes(t_list **stack)
 	}
 	*stack = start;
 }
-int		set_costs(t_list *a, t_list *b, t_data *data)
+int		set_costs(t_list *a, t_list *b)
 {
-	int rr_cost;
-	int	rrr_cost;
 	int	individual_cost;
 
 	set_distances(a, b);
 	set_directions(a, b);
 	individual_cost = calc_ind_cost(a, b);
-	rr_cost = 
-	return(0);
+	return(individual_cost);
 }
 int		count_targets(t_list *a, t_list *b)
 {
@@ -101,6 +98,7 @@ void	set_attributes(t_list **a, t_list **b)
 	while(*a)
 	{
 		(*a)->target = set_target(*a, b);
+		(*a)->cost = set_costs(*a, *b);
 		*a = (*a)->next;
 	}
 	*a = temp;

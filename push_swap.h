@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 12:53:37 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/13 18:39:32 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/14 09:31:19 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,6 @@ t_list	*ft_lstnew(int content);
 t_list	*find_biggest(t_list *stack);
 void	turk(t_data *data);
 t_list  *find_biggest_lower_than(t_list *stack, int x);
+void	set_lstsizes(t_list **stack);
 
 #endif
