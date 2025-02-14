@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 09:59:18 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/14 10:06:55 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/14 13:07:28 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,18 @@ void	set_lstsizes(t_list **stack)
 		*stack = (*stack)->next;
 	}
 	*stack = start;
+}
+t_list	*find_cheapest_node(t_list *stack)
+{
+	t_list *comp;
+
+	comp = stack;
+	while(comp)
+	{
+		if((comp->cost) < (stack->cost))
+			stack = comp;
+		else
+			comp = comp->next;
+	}
+	return(stack);
 }

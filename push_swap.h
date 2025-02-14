@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 12:53:37 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/14 10:08:21 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/14 12:58:17 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,5 +73,8 @@ void	set_directions(t_list *a, t_list *b);
 int		calc_ind_cost(t_list *a, t_list *b);
 int		calc_rr_cost(t_list *a, t_list *b);
 int		calc_rrr_cost(t_list *a, t_list *b);
+t_list	*find_cheapest_node(t_list *stack);
+void	both_rotate(t_list **stack_a, t_list **stack_b);
+void	both_reverse(t_list **stack_a, t_list **stack_b);
 
 #endif
