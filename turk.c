@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 17:15:36 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/14 09:29:08 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/14 09:43:09 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,20 @@ int		calc_ind_cost(t_list *a, t_list *b)
 	else
 		b_cost = b->y + 1;
 	return(a_cost + b_cost);
+}
+int		calc_rr_cost(t_list *a, t_list *b)
+{
+	if((a->x) >= (b->x))
+		return(a->x);
+	else
+		return(b->x);
+}
+int		calc_rrr_cost(t_list *a, t_list *b)
+{
+	if((a->y) >= (b->y))
+		return(a->y + 1);
+	else
+		return(b->y + 1);
 }
 void	set_distances(t_list *a, t_list *b)
 {
@@ -60,11 +74,17 @@ void	set_lstsizes(t_list **stack)
 int		set_costs(t_list *a, t_list *b)
 {
 	int	individual_cost;
+	int rr_cost;
+	int	rrr_cost;
 
 	set_distances(a, b);
 	set_directions(a, b);
 	individual_cost = calc_ind_cost(a, b);
-	return(individual_cost);
+	rr_cost = calc_rr_cost(a, b);
+	rrr_cost = calc_rrr_cost(a, b);
+	(void)individual_cost;
+	(void)rr_cost;
+	return(rrr_cost);
 }
 int		count_targets(t_list *a, t_list *b)
 {
