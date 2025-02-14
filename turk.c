@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 17:15:36 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/14 20:43:58 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/14 21:04:33 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,6 @@ void	turk(t_data *data)
 			rotate(data->b, "b");
 	}
 	swap(data->b, "b");
+	reverse_rotate(data->b, "b");
 	ft_printf("%d\n", check_ordered(*(data->b)));
 }
