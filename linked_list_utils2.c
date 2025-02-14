@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:25:00 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/14 15:29:07 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/14 19:34:20 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,9 @@ void	ft_lstswap(t_list *number1, t_list *number2)
 	temp = number1->content;
 	number1->content = number2->content;
 	number2->content = temp;
+	temp = number1->index;
+	number1->index = number2->index;
+	number2->index = temp;
 }
 t_list	*ft_beforelstlast(t_list *lst)
 {

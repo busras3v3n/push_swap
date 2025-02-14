@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:21:06 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/14 15:22:46 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/14 19:32:43 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,19 +51,16 @@ void	push(t_list **from, t_list **to, char *to_name)
 }
 void	rotate(t_list **stack, char *name)
 {
-	t_list	*new;
-	t_list	*remove;
+	t_list *temp;
 
-	if(ft_lstsize(*stack) > 1)
+	temp = *stack;
+	while(*stack && (*stack)->next)
 	{
-		new = ft_lstnew((*stack)->content);
-		new->index = (*stack)->index;
-		ft_lstadd_back(stack, new);
-		remove = *stack;
+		ft_lstswap(*stack, (*stack)->next);
 		*stack = (*stack)->next;
-		free(remove);
 	}
-	ft_printf("r%s\n", name);
+	*stack = temp;
+	ft_printf("rr%s\n", name);
 }
 
 void	reverse_rotate(t_list **stack, char *name)
