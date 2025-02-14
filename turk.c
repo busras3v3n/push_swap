@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 17:15:36 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/14 19:53:16 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/14 20:29:05 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void	get_nodes_to_top(t_data *data, t_list *a, t_list *b)
 void	turk(t_data *data)
 {
 	t_list *cheapest;
+	t_list	*max;
 
 	push(data->a, data->b, "b");
 	push(data->a, data->b, "b");
@@ -54,6 +55,17 @@ void	turk(t_data *data)
 		cheapest = find_cheapest_node(*(data->a));
 		get_nodes_to_top(data, cheapest, cheapest->target);
 		push(data->a, data->b, "a");
+	}
+	max = find_biggest(*(data->b));
+	ft_printf("max index: %d\n", max->index);
+	ft_printf("b index: %d\n", data->b[0]->index);
+	rotate(data->b, "b");
+	ft_printf("max index: %d\n", max->index);
+	ft_printf("b index: %d\n", data->b[0]->index);
+	while((data->b[0]->index) != (max->index))
+	{
+		if(max->direction == 0)
+			rotate(data->b, "b");
 	}
 	ft_printf("%d\n", check_ordered(*(data->b)));
 }
