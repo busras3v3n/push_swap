@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:21:06 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/14 20:28:09 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/14 20:43:32 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 void	swap(t_list **stack, char *name)
 {
-	int temp;
+	t_list *temp;
+	t_list	*next_temp;
 
 	if(ft_lstsize(*stack) > 1)
 	{
-    	temp = (*stack)->content;
-		(*stack)->content = (*stack)->next->content;
-		(*stack)->next->content = temp;
-		temp = (*stack)->index;
-		(*stack)->index= (*stack)->next->index;
-		(*stack)->next->index = temp;
+    	temp = *stack;
+		(*stack) = (*stack)->next;
+		next_temp = (*stack)->next;
+		(*stack)->next = temp;
+		temp->next = next_temp;
 	}
 	ft_printf("s%s\n", name);
 }
