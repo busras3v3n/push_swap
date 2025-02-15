@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 12:53:37 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/15 14:51:06 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/15 15:18:46 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,5 +82,8 @@ int		check_ordered(t_list *a);
 int		check_ordered_circular(t_list *a);
 int		check_ordered_linear(t_list *a);
 int		check_ordered_linear2(t_list *a, int til);
+int		set_costs(t_list *a, t_list *b);
+t_list	*previous_node(t_list **list, t_list *node);
+void	set_attributes2(t_list **a, t_list **b);
 
 #endif

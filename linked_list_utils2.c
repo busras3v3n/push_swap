@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:25:00 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/14 19:34:20 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/15 15:05:04 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,25 +69,23 @@ void	set_real_index(t_list *stack)
 		stack = stack->next;
 	}
 }
+t_list	*previous_node(t_list **list, t_list *node)
+{
+	t_list *temp;
+	t_list	*ret;
 
-void	ft_lstswap(t_list *number1, t_list *number2)
-{
-	int temp;
-	
-	temp = number1->content;
-	number1->content = number2->content;
-	number2->content = temp;
-	temp = number1->index;
-	number1->index = number2->index;
-	number2->index = temp;
-}
-t_list	*ft_beforelstlast(t_list *lst)
-{
-	if (!lst)
-		return (NULL);
-	while (lst->next->next != NULL)
+	temp = *list;
+	while(*list)
 	{
-		lst = lst->next;
+		if((*list)->next == node)
+		{
+			ret = *list;
+			*list = temp;
+			return(ret);
+		}
+		*list = (*list)->next;
 	}
-	return (lst);
+	ret = *list;
+	*list = temp;
+	return(NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 09:59:18 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/15 14:49:59 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/15 15:40:55 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int		check_ordered_linear(t_list *a)
 }
 int		check_ordered_linear2(t_list *a, int til)
 {
-	while((a->next->index != til) && a && (a->next))
+	while(a && a->next && (a->next->index != til))
 	{
 		if((a->index) > (a->next->index))
 			return (0);
@@ -33,30 +33,6 @@ int		check_ordered_linear2(t_list *a, int til)
 	return (1);
 }
 
-int		check_ordered(t_list *a)
-{
-	t_list *start;
-	t_list	*min;
-
-	min = find_smallest(a);
-	start = min->next;
-	while((start) && (start->index != min->index))
-	{
-		if(!start->next)
-		{
-			if(start->index < a->index)
-				return (0);
-			start = a;
-		}
-		else
-		{
-			if(start->index < start->next->index)
-				return (0);
-			start = start->next;
-		}
-	}
-	return(1);
-}
 void	set_lstsizes(t_list **stack)
 {
 	t_list	*start;
