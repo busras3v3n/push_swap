@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 17:15:36 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/14 21:04:33 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/15 13:15:22 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,17 +57,9 @@ void	turk(t_data *data)
 		push(data->a, data->b, "a");
 	}
 	max = find_biggest(*(data->b));
-	ft_printf("max index: %d\n", max->index);
-	ft_printf("b index: %d\n", data->b[0]->index);
-	rotate(data->b, "b");
-	ft_printf("max index: %d\n", max->index);
-	ft_printf("b index: %d\n", data->b[0]->index);
 	while((data->b[0]->index) != (max->index))
 	{
 		if(max->direction == 0)
 			rotate(data->b, "b");
 	}
-	swap(data->b, "b");
-	reverse_rotate(data->b, "b");
-	ft_printf("%d\n", check_ordered(*(data->b)));
 }

@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 09:59:18 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/14 19:52:17 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/15 13:20:01 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,25 +24,34 @@ int		check_ordered_linear(t_list *a)
 }
 int		check_ordered_circular(t_list *a)
 {
-	t_list *start;
-	t_list	*min;
+	t_list *min;
+	t_list *hold;
+	t_list	*comp;
 
 	min = find_smallest(a);
-	start = min->next;
-	while((start) && (start->index != min->index))
+	comp = min->next;
+	while(comp && comp->next)
 	{
-		if(!start->next)
+		hold = comp->next;
+		while(hold != min)
 		{
-			if(start->index < a->index)
-				return (0);
-			start = a;
+			if(comp->index > hold->index)
+				return(0);
+			if(!hold->next)
+				hold = a;
+			else
+				hold = hold->next;
 		}
-		else
-		{
-			if(start->index < start->next->index)
-				return (0);
-			start = start->next;
-		}
+		comp = comp->next;
+	}
+	if(comp->index > a->index)
+		return(0);
+	comp = a;
+	while(comp && (comp != min))
+	{
+		if((comp->index) < (comp->next->index))
+			return(0);
+		comp = comp->next;
 	}
 	return(1);
 }
