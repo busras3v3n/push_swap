@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:25:00 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/15 15:05:04 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/15 19:48:35 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,9 @@ void	set_real_index(t_list *stack)
 	while(stack)
 	{
 		stack->position = i;
-		i++;
+		ft_printf("i: %d\n", i);
 		stack = stack->next;
+		i++;
 	}
 }
 t_list	*previous_node(t_list **list, t_list *node)

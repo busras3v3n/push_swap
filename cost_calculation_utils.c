@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 10:01:10 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/14 15:15:21 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/15 19:46:35 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,12 @@ int		calc_ind_cost(t_list *a, t_list *b)
 		a_cost = a->x;
 	else
 		a_cost = a->y + 1;
+	ft_printf("a x: %d\n", a->x);
 	if(b->direction == 0)
 		b_cost = b->x;
 	else
 		b_cost = b->y + 1;
+	ft_printf("b x: %d\n", b->x);
 	return(a_cost + b_cost);
 }
 int		calc_rr_cost(t_list *a, t_list *b)
@@ -54,7 +56,7 @@ void	set_directions(t_list *a, t_list *b)
 		a->direction = 0;
 	else
 		a->direction = 1;
-	if((b->position) <= (a->size / 2))
+	if((b->position) <= (b->size / 2))
 		b->direction = 0;
 	else
 		b->direction = 1;
