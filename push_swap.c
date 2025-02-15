@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 11:50:37 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/15 13:01:38 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/15 17:45:50 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,12 @@ int main(int argc, char **argv)
 		{
 			ft_printf("number: %d, index: %d\n", data->a[0]->content, data->a[0]->index);
 			data->a[0] = data->a[0]->next;
+		}
+		ft_printf("\n");
+		while(data->b[0])
+		{
+			ft_printf("number: %d, index: %d\n", data->b[0]->content, data->b[0]->index);
+			data->b[0] = data->b[0]->next;
 		}
 		ft_printf("\n");
 		free_data_exit(data);

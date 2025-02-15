@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:21:06 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/15 15:04:53 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/15 17:44:33 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	swap(t_list **stack, char *name)
 	t_list *temp;
 	t_list	*next_temp;
 
+	(void)name;
 	if(ft_lstsize(*stack) > 1)
 	{
     	temp = *stack;
@@ -25,12 +26,12 @@ void	swap(t_list **stack, char *name)
 		(*stack)->next = temp;
 		temp->next = next_temp;
 	}
-	ft_printf("s%s\n", name);
 }
 void	push(t_list **from, t_list **to, char *to_name)
 {
 	t_list	*b_new_head;
 
+	(void)to_name;
 	if(ft_lstsize(*from) > 0)
 	{
 		b_new_head = *from;
@@ -44,17 +45,16 @@ void	push(t_list **from, t_list **to, char *to_name)
 	set_lstsizes(to);
 	set_directions_list(*from);
 	set_directions_list(*to);
-	ft_printf("p%s\n", to_name);
 }
 void	rotate(t_list **stack, char *name)
 {
 	t_list *temp;
 
+	(void)name;
 	temp = *stack;
 	*stack = (*stack)->next;
 	temp->next = NULL;
 	ft_lstadd_back(stack, temp);
-	ft_printf("rr%s\n", name);
 }
 void	reverse_rotate(t_list **stack, char *name)
 {
@@ -62,11 +62,11 @@ void	reverse_rotate(t_list **stack, char *name)
 	t_list *prev;
 	t_list	*sec;
 
+	(void)name;
 	sec = *stack;
 	last = ft_lstlast(*stack);
 	prev = previous_node(stack, last);
 	prev->next = NULL;
 	*stack = last;
 	last->next = sec;
-	ft_printf("rr%s\n", name);
 }
