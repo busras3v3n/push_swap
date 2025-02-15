@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:21:06 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/15 17:55:01 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/15 20:19:10 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,11 +62,11 @@ void	reverse_rotate(t_list **stack, char *name)
 	t_list *prev;
 	t_list	*sec;
 
-	(void)name;
 	sec = *stack;
 	last = ft_lstlast(*stack);
 	prev = previous_node(stack, last);
 	prev->next = NULL;
 	*stack = last;
 	last->next = sec;
+	ft_printf()
 }

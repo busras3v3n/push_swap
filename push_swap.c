@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 11:50:37 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/15 20:06:57 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/15 20:10:34 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,7 @@ int main(int argc, char **argv)
 	if(argc >= 2)
 	{
 		init_data(data, argv);
-		push(data->a, data->b, "b");
-		push(data->a, data->b, "b");
-		push(data->a, data->b, "b");
-		set_attributes(data->a, data->b);
+		turk(data);
 		while(*(data->a))
 		{
 			ft_printf("%d, target: %d, rr: %d, rrr: %d, cost: %d\n", data->a[0]->content, data->a[0]->target->content, data->a[0]->rr, data->a[0]->rrr, data->a[0]->cost);
