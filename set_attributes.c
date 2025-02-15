@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 10:02:32 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/15 19:51:27 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/15 19:52:22 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,8 @@ int		set_costs(t_list *a, t_list *b)
 
 	set_distances(a, b);
 	ind_cost = calc_ind_cost(a, b);
-	ft_printf("ind cost for %d: %d\n", a->content, ind_cost);
 	rr_cost = calc_rr_cost(a, b);
-	ft_printf("rr cost for %d: %d\n", a->content, rr_cost);
 	rrr_cost = calc_rrr_cost(a, b);
-	ft_printf("rrr cost for %d: %d\n\n", a->content, rr_cost);
 	if((ind_cost <= rr_cost) && (ind_cost <= rrr_cost))
 		return(pick_cost(a, 0, 0, ind_cost));
 	else if((rrr_cost <= rr_cost) && (rrr_cost <= ind_cost))
@@ -111,12 +108,8 @@ void	set_attributes(t_list **a, t_list **b)
 	
 	while(*a)
 	{
-		ft_printf("selecting a target for...index: %d\n", (*a)->content);
 		(*a)->target = set_target(*a, b);
-		ft_printf("target for %d: %d\n", (*a)->content, (*a)->target->content);
 		(*a)->cost = set_costs(*a, (*a)->target);
-		ft_printf("calculated cost: %d\n", (*a)->cost);
-		ft_printf("flags: %d, %d\n\n\n\n", (*a)->rr, (*a)->rrr);
 		*a = (*a)->next;
 	}
 	*a = temp;

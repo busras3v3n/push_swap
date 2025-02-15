@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 17:15:36 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/15 19:38:51 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/15 19:58:02 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,15 +99,18 @@ void	rotate_sorted_lists(t_data *data, t_list **a, t_list **b)
 }
 void	turk(t_data *data)
 {
+	t_list	*cheapest;
+	
 	push(data->a, data->b, "b");
 	push(data->a, data->b, "b");
 	while(*(data->a))
 	{
-		if(ft_lstsize(*(data->a)) <= 1)
-			break;
 		if(check_ordered_circular(*(data->a)))
 			break;
 		set_attributes(data->a, data->b);
+		cheapest = find_cheapest_node(*(data->a));
+		get_nodes_to_top(data, cheapest, cheapest->target);
+		push(data->a, data->b, "b");
 		break;
 	}
 }
