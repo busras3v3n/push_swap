@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 17:15:36 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/15 13:45:07 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/15 14:51:32 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,26 @@ void	get_nodes_to_top(t_data *data, t_list *a, t_list *b)
 {
 	rotate_individually(data, a, b);
 }
+int		check_ordered_circular(t_list *a)
+{
+	t_list *min;
+
+	min = find_smallest(a);
+	if(!check_ordered_linear(min))
+		return(0);
+	if((a->index != min->index) && (ft_lstlast(a)->index > a->index))
+		return(0);
+	if(!check_ordered_linear2(a, min->index))
+		return(0);
+	return(1);
+}
 void	turk(t_data *data)
 {
 	t_list *cheapest;
 
 	push(data->a, data->b, "b");
 	push(data->a, data->b, "b");
-	while(*(data->a))
+	while(*(data->a) && !check_ordered_circular(*(data->a)))
 	{
 		if(ft_lstsize(*(data->a)) < 2)
 			break ;
