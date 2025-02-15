@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 10:02:32 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/15 15:23:55 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/15 17:58:25 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,8 +105,12 @@ void	set_attributes(t_list **a, t_list **b)
 	temp = *a;
 	while(*a)
 	{
+		ft_printf("selecting a target for...index: %d\n", (*a)->content);
 		(*a)->target = set_target(*a, b);
+		ft_printf("target for %d: %d\n", (*a)->content, (*a)->target->content);
 		(*a)->cost = set_costs(*a, *b);
+		ft_printf("calculated cost: %d\n", (*a)->cost);
+		ft_printf("flags: %d, %d\n\n\n\n", (*a)->rr, (*a)->rrr);
 		*a = (*a)->next;
 	}
 	*a = temp;
@@ -118,6 +122,7 @@ void	set_attributes2(t_list **a, t_list **b)
 	temp = *a;
 	while(*a)
 	{
+
 		(*a)->target = set_target2(*a, b);
 		(*a)->cost = set_costs(*a, *b);
 		*a = (*a)->next;

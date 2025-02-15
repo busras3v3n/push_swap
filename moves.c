@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:21:06 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/15 17:44:33 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/15 17:55:01 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ void	push(t_list **from, t_list **to, char *to_name)
 {
 	t_list	*b_new_head;
 
-	(void)to_name;
 	if(ft_lstsize(*from) > 0)
 	{
 		b_new_head = *from;
@@ -45,6 +44,7 @@ void	push(t_list **from, t_list **to, char *to_name)
 	set_lstsizes(to);
 	set_directions_list(*from);
 	set_directions_list(*to);
+	ft_printf("p%s\n", to_name);
 }
 void	rotate(t_list **stack, char *name)
 {
