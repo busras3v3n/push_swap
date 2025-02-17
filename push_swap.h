@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 12:53:37 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/17 11:13:22 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/17 12:39:04 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	check_for_invalid_char(char **ints, t_data *data);
 void	check_for_non_int(char **ints, t_data *data);
 void	check_for_doubles(char **ints, t_data *data);
 int		get_2d_length(char **arr);
-void	free_data_exit(t_data	*data);
+void	free_data_exit(t_data	*data, int exit);
 void	free_2d_arr(char **arr);
 t_list	*ft_beforelstlast(t_list *lst);
 t_list	*ft_lstlast(t_list *lst);
@@ -85,5 +85,9 @@ int		check_ordered_linear2(t_list *a, int til);
 int		set_costs(t_list *a, t_list *b);
 t_list	*previous_node(t_list **list, t_list *node);
 void	set_attributes2(t_list **a, t_list **b);
+int		check_ordered_circular(t_list *a);
+void	reverse_rotate_together(t_data *data, t_list *a, t_list *b);
+void	rotate_together(t_data *data, t_list *a, t_list *b);
+void	rotate_individually(t_data *data, t_list *a, t_list *b);
 
 #endif

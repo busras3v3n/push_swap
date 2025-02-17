@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:25:00 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/17 12:15:55 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/17 12:31:19 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,9 @@ t_list	*find_biggest_lower_than(t_list *stack, int x)
 	comp = stack;
 	while (comp)
 	{
-		if (comp->index < x)
+		if (comp->index < x && ((biggest == NULL) || (comp->index > biggest->index)))
 		{
-			if (biggest == NULL || (comp->index > biggest->index))
-				biggest = comp;
+			biggest = comp;
 		}
 		else
 			comp = comp->next;

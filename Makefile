@@ -6,12 +6,12 @@
 #    By: busseven <busseven@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/22 09:59:40 by busseven          #+#    #+#              #
-#    Updated: 2025/02/14 10:07:22 by busseven         ###   ########.fr        #
+#    Updated: 2025/02/17 12:34:23 by busseven         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRC 		= 	./push_swap.c ./format.c ./utils.c ./linked_list_utils.c ./linked_list_utils2.c ./moves.c ./moves2.c ./init_utils.c ./turk.c \
-				./cost_calculation_utils.c ./linked_list_utils3.c ./set_attributes.c
+				./cost_calculation_utils.c ./linked_list_utils3.c ./set_attributes.c ./set_attributes_b.c ./turk_utils.c
 OBJS 		= $(SRC:.c=.o)
 NAME 		= push_swap
 CC			= cc

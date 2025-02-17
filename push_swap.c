@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 11:50:37 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/17 11:13:03 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/17 12:39:22 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int main(int argc, char **argv)
 	{
 		init_data(data, argv);
 		turk(data);
-		free_data_exit(data);
+		free_data_exit(data, 0);
 	}
 	else
 		write(2, "Error\nno arguments\n", 19);
