@@ -6,16 +6,15 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 15:04:46 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/17 11:12:55 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/17 12:26:25 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
 void	rotate_no_print(t_list **stack)
 {
-	t_list *temp;
+	t_list	*temp;
 
 	temp = *stack;
 	*stack = (*stack)->next;
@@ -25,8 +24,8 @@ void	rotate_no_print(t_list **stack)
 
 void	reverse_rotate_no_print(t_list **stack)
 {
-	t_list *last;
-	t_list *prev;
+	t_list	*last;
+	t_list	*prev;
 	t_list	*sec;
 
 	sec = *stack;
