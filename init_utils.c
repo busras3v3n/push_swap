@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 15:07:54 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/17 11:12:35 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/17 12:13:11 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,29 +55,29 @@ void	init_data_numbers(char **argv, t_data *data)
 	}	
 }
 
-int		set_index(int content, t_list *a)
+int	set_index(int content, t_list *a)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	while(a)
+	while (a)
 	{
-		if(content > a->content)
+		if (content > a->content)
 			i++;
-		else if(content < a->content)
+		else if (content < a->content)
 			(a->index)++;
 		a = a->next;
 	}
-	return(i);
+	return (i);
 }
 
 void	put_nodes_in_a(t_list **a, char **numbers)
 {
-	t_list *new;
-	int	i;
+	t_list	*new;
+	int		i;
 
 	i = 0;
-	while(numbers[i])
+	while (numbers[i])
 	{
 		new = ft_lstnew(ft_atoi(numbers[i]));
 		new->index = set_index(new->content, *a);

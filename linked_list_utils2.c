@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:25:00 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/17 11:12:27 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/17 12:14:50 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_list	*find_biggest(t_list *stack)
 {
-	t_list *comp;
+	t_list	*comp;
 
 	comp = stack;
 	while (comp)
@@ -29,7 +29,7 @@ t_list	*find_biggest(t_list *stack)
 
 t_list	*find_smallest(t_list *stack)
 {
-	t_list *comp;
+	t_list	*comp;
 
 	comp = stack;
 	while (comp)
@@ -44,9 +44,10 @@ t_list	*find_smallest(t_list *stack)
 
 t_list	*find_biggest_lower_than(t_list *stack, int x)
 {
-	t_list *comp;
-	t_list	*biggest = NULL;
+	t_list	*comp;
+	t_list	*biggest;
 
+	biggest = NULL;
 	comp = stack;
 	while (comp)
 	{
@@ -60,7 +61,7 @@ t_list	*find_biggest_lower_than(t_list *stack, int x)
 
 void	set_real_index(t_list *stack)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (stack)
@@ -73,7 +74,7 @@ void	set_real_index(t_list *stack)
 
 t_list	*previous_node(t_list **list, t_list *node)
 {
-	t_list *temp;
+	t_list	*temp;
 	t_list	*ret;
 
 	temp = *list;
@@ -83,7 +84,7 @@ t_list	*previous_node(t_list **list, t_list *node)
 		{
 			ret = *list;
 			*list = temp;
-			return(ret);
+			return (ret);
 		}
 		*list = (*list)->next;
 	}
