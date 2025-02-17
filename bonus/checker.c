@@ -6,11 +6,37 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:26:13 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/17 16:24:59 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/17 16:34:34 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_bonus.h"
+
+void	check_action(t_data *data, char *line)
+{
+	if(!ft_strncmp(line, "sa\n", ft_strlen(line)))
+		swap_bonus(data->a);
+	else if(!ft_strncmp(line, "sb\n", ft_strlen(line)))
+		swap_bonus(data->b);
+	else if(!ft_strncmp(line, "ss\n", ft_strlen(line)))
+		both_swap_bonus(data->a, data->b);
+	else if(!ft_strncmp(line, "ra\n", ft_strlen(line)))
+		rotate_bonus(data->a);
+	else if(!ft_strncmp(line, "rb\n", ft_strlen(line)))
+		rotate_bonus(data->b);
+	else if(!ft_strncmp(line, "rr\n", ft_strlen(line)))
+		both_rotate_bonus(data->b, data->a);
+	else if(!ft_strncmp(line, "rra\n", ft_strlen(line)))
+		reverse_rotate_bonus(data->a);
+	else if(!ft_strncmp(line, "rrb\n", ft_strlen(line)))
+		reverse_rotate_bonus(data->b);
+	else if(!ft_strncmp(line, "rrr\n", ft_strlen(line)))
+		both_reverse_bonus(data->b, data->a);
+	else if(!ft_strncmp(line, "pa\n", ft_strlen(line)))
+		push_bonus(data->b, data->a);
+	else if(!ft_strncmp(line, "pb\n", ft_strlen(line)))
+		push_bonus(data->a, data->b);
+}
 
 void	init_data_bonus(t_data *data, char **argv)
 {
@@ -83,28 +109,7 @@ int	main(int argc, char **argv)
 			line = get_next_line(0);
 			if(!check_line_validity(data, line))
 				free_data_exit(data, 1);
-			else if(!ft_strncmp(line, "sa\n", ft_strlen(line)))
-				swap_bonus(data->a);
-			else if(!ft_strncmp(line, "sb\n", ft_strlen(line)))
-				swap_bonus(data->b);
-			else if(!ft_strncmp(line, "ss\n", ft_strlen(line)))
-				both_swap_bonus(data->a, data->b);
-			else if(!ft_strncmp(line, "ra\n", ft_strlen(line)))
-				rotate_bonus(data->a);
-			else if(!ft_strncmp(line, "rb\n", ft_strlen(line)))
-				rotate_bonus(data->b);
-			else if(!ft_strncmp(line, "rr\n", ft_strlen(line)))
-				both_rotate_bonus(data->b, data->a);
-			else if(!ft_strncmp(line, "rra\n", ft_strlen(line)))
-				reverse_rotate_bonus(data->a);
-			else if(!ft_strncmp(line, "rrb\n", ft_strlen(line)))
-				reverse_rotate_bonus(data->b);
-			else if(!ft_strncmp(line, "rrr\n", ft_strlen(line)))
-				both_reverse_bonus(data->b, data->a);
-			else if(!ft_strncmp(line, "pa\n", ft_strlen(line)))
-				push_bonus(data->b, data->a);
-			else if(!ft_strncmp(line, "pb\n", ft_strlen(line)))
-				push_bonus(data->a, data->b);
+			check_action(data, line);
 			temp_a = *(data->a);
 			temp_b = *(data->b);
 			while(*(data->a))
