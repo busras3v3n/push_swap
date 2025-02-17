@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 17:15:36 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/15 20:18:39 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/17 10:43:45 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ void	rotate_individually(t_data *data, t_list *a, t_list *b)
 	stack_b = data->b;
 	a_index = a->index;
 	b_index	= b->index;
-	ft_printf("ri!\n");
 	while(((*stack_a)->index) != a_index)
 	{
 		if(a->direction == 0)
@@ -59,7 +58,6 @@ void	reverse_rotate_together(t_data *data, t_list *a, t_list *b)
 }
 void	get_nodes_to_top(t_data *data, t_list *a, t_list *b)
 {
-	ft_printf("searching for the best option\n");
 	if(a->rr == 0 && a->rrr == 0)
 		rotate_individually(data, a, b);
 	else if(a->rr == 1)
@@ -102,15 +100,30 @@ void	rotate_sorted_lists(t_data *data, t_list **a, t_list **b)
 void	turk(t_data *data)
 {
 	t_list	*cheapest;
+	t_list	*min;
 	
 	push(data->a, data->b, "b");
 	push(data->a, data->b, "b");
-	while(*(data->a))
+	while(!check_ordered_circular(*(data->a)))
 	{
 		set_attributes(data->a, data->b);
 		cheapest = find_cheapest_node(*(data->a));
 		get_nodes_to_top(data, cheapest, cheapest->target);
-		ft_printf("%d, target: %d, rr: %d, rrr: %d, cost: %d\n", cheapest->content, cheapest->target->content, cheapest->rr, cheapest->rrr, cheapest->cost);
 		push(data->a, data->b, "b");
+	}
+	while(*(data->b))
+	{
+		set_attributes2(data->b, data->a);
+		cheapest = find_cheapest_node(*(data->b));
+		get_nodes_to_top2(data, cheapest, cheapest->target);
+		push(data->b, data->a, "a");
+	}
+	min = find_smallest(*(data->a));
+	while(*(data->a) != min)
+	{
+		if(min->direction == 0)
+			rotate(data->a, "a");
+		else
+			reverse_rotate(data->a, "a");
 	}
 }
