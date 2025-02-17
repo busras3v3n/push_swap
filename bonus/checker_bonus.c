@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:26:13 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/17 17:22:44 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/17 17:37:24 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,36 +14,11 @@
 
 void	check_if_sorted(t_data *data)
 {
-	if(check_ordered_linear(*(data->a)) && !ft_lstsize(*(data->b)))
+	if (check_ordered_linear(*(data->a)) && !ft_lstsize(*(data->b)))
 		ft_printf("OK\n");
 	else
 		ft_printf("KO\n");
 	free_data_exit(data, 0);
-}
-void	check_action(t_data *data, char *line)
-{
-	if(!ft_strncmp(line, "sa\n", ft_strlen(line)))
-		swap_bonus(data->a);
-	else if(!ft_strncmp(line, "sb\n", ft_strlen(line)))
-		swap_bonus(data->b);
-	else if(!ft_strncmp(line, "ss\n", ft_strlen(line)))
-		both_swap_bonus(data->a, data->b);
-	else if(!ft_strncmp(line, "ra\n", ft_strlen(line)))
-		rotate_bonus(data->a);
-	else if(!ft_strncmp(line, "rb\n", ft_strlen(line)))
-		rotate_bonus(data->b);
-	else if(!ft_strncmp(line, "rr\n", ft_strlen(line)))
-		both_rotate_bonus(data->b, data->a);
-	else if(!ft_strncmp(line, "rra\n", ft_strlen(line)))
-		reverse_rotate_bonus(data->a);
-	else if(!ft_strncmp(line, "rrb\n", ft_strlen(line)))
-		reverse_rotate_bonus(data->b);
-	else if(!ft_strncmp(line, "rrr\n", ft_strlen(line)))
-		both_reverse_bonus(data->b, data->a);
-	else if(!ft_strncmp(line, "pa\n", ft_strlen(line)))
-		push_bonus(data->b, data->a);
-	else if(!ft_strncmp(line, "pb\n", ft_strlen(line)))
-		push_bonus(data->a, data->b);
 }
 
 void	init_data_bonus(t_data *data, char **argv)
@@ -65,23 +40,41 @@ int	check_line_validity(t_data *data, char *line)
 	int		i;
 
 	valid_moves = ft_split("sa sb ss ra rb rr rra rrb rrr pa pb", ' ');
-	while(valid_moves[i])
+	while (valid_moves[i])
 	{
 		valid_moves[i] = add_chars(valid_moves[i], '\n');
 		i++;
 	}
 	i = 0;
-	while(valid_moves[i])
+	while (valid_moves[i])
 	{
-		if(!ft_strncmp(valid_moves[i], line, ft_strlen(line)))
+		if (!ft_strncmp(valid_moves[i], line, ft_strlen(line)))
 		{
 			free_2d_arr(valid_moves);
-			return(1);
+			return (1);
 		}
 		i++;
 	}
 	free_2d_arr(valid_moves);
-	return(0);
+	return (0);
+}
+void	read_line(t_data *data)
+{
+	while (1)
+	{
+		line = get_next_line2(0, 1);
+		if (!line)
+			break ;
+		if (!check_line_validity(data, line))
+		{
+			write(2, "Error\n", 6);
+			free(line);
+			get_next_line2(0, 0);
+			free_data_exit(data, 1);
+		}
+		check_action(data, line);
+		free(line);
+	}
 }
 
 int	main(int argc, char **argv)
@@ -95,21 +88,7 @@ int	main(int argc, char **argv)
 	if (argc >= 2)
 	{
 		init_data_bonus(data, argv);
-		while(1)
-		{
-			line = get_next_line2(0, 1);
-			if(!line)
-				break ;
-			if(!check_line_validity(data, line))
-			{
-				write(2, "Error\n", 6);
-				free(line);
-				get_next_line2(0, 0);
-				free_data_exit(data, 1);
-			}
-			check_action(data, line);
-			free(line);
-		}
+		read_line(data);
 		check_if_sorted(data);
 	}
 }

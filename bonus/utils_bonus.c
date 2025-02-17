@@ -6,11 +6,37 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 17:14:53 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/17 17:22:57 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/17 17:37:37 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"push_swap_bonus.h"
+
+void	check_action(t_data *data, char *line)
+{
+	if (!ft_strncmp(line, "sa\n", ft_strlen(line)))
+		swap_bonus(data->a);
+	else if (!ft_strncmp(line, "sb\n", ft_strlen(line)))
+		swap_bonus(data->b);
+	else if (!ft_strncmp(line, "ss\n", ft_strlen(line)))
+		both_swap_bonus(data->a, data->b);
+	else if (!ft_strncmp(line, "ra\n", ft_strlen(line)))
+		rotate_bonus(data->a);
+	else if (!ft_strncmp(line, "rb\n", ft_strlen(line)))
+		rotate_bonus(data->b);
+	else if (!ft_strncmp(line, "rr\n", ft_strlen(line)))
+		both_rotate_bonus(data->b, data->a);
+	else if (!ft_strncmp(line, "rra\n", ft_strlen(line)))
+		reverse_rotate_bonus(data->a);
+	else if (!ft_strncmp(line, "rrb\n", ft_strlen(line)))
+		reverse_rotate_bonus(data->b);
+	else if (!ft_strncmp(line, "rrr\n", ft_strlen(line)))
+		both_reverse_bonus(data->b, data->a);
+	else if (!ft_strncmp(line, "pa\n", ft_strlen(line)))
+		push_bonus(data->b, data->a);
+	else if (!ft_strncmp(line, "pb\n", ft_strlen(line)))
+		push_bonus(data->a, data->b);
+}
 
 char	*add_chars(char *str, char a)
 {
@@ -40,6 +66,7 @@ int	free_buffer(int k, char *buffer)
 	}
 	return (1);
 }
+
 char	*get_next_line2(int fd, int k)
 {
 	static char	*buffer[1024];
