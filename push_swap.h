@@ -6,12 +6,12 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 12:53:37 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/17 12:39:04 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/17 13:41:11 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PIPEX_H
-# define PIPEX_H
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
 # include "./ft_printf/libft/libft.h"
 # include "./ft_printf/ft_printf.h"
@@ -65,7 +65,7 @@ void	check_arguments(char **numbers, t_data *data);
 t_list	*ft_lstnew(int content);
 t_list	*find_biggest(t_list *stack);
 void	turk(t_data *data);
-t_list  *find_biggest_lower_than(t_list *stack, int x);
+t_list	*find_biggest_lower_than(t_list *stack, int x);
 void	set_lstsizes(t_list **stack);
 void	set_attributes(t_list **a, t_list **b);
 void	set_distances(t_list *a, t_list *b);

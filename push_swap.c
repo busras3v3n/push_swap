@@ -6,11 +6,35 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 11:50:37 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/17 12:39:22 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/17 13:40:42 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	tiny_sort(t_data *data)
+{
+	t_list	*max;
+
+	max = find_biggest(*(data->a));
+	if (ft_lstsize(*(data->a)) == 2)
+	{
+		if (data->a[0]->index > data->a[0]->next->index)
+			swap(data->a, "a");
+	}
+	if (ft_lstsize(*(data->a)) == 3)
+	{
+		if (ft_lstlast(*(data->a)) != max)
+		{
+			if (max->index == data->a[0]->index)
+				rotate(data->a, "a");
+			else
+				reverse_rotate(data->a, "a");
+		}
+		if (data->a[0]->index > data->a[0]->next->index)
+			swap(data->a, "a");
+	}
+}
 
 void	init_data(t_data *data, char **argv)
 {
@@ -25,15 +49,20 @@ void	init_data(t_data *data, char **argv)
 	set_directions_list(*(data->a));
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	t_data *data;
+	t_data	*data;
 
 	data = ft_calloc(1, sizeof(t_data));
 	if (argc >= 2)
 	{
 		init_data(data, argv);
-		turk(data);
+		if (ft_lstsize(*(data->a)) == 1)
+			return (0);
+		else if (ft_lstsize(*(data->a)) < 4)
+			tiny_sort(data);
+		else
+			turk(data);
 		free_data_exit(data, 0);
 	}
 	else
