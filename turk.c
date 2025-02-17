@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 17:15:36 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/17 12:37:51 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/17 12:49:58 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,10 @@ void	turk(t_data *data)
 	t_list	*cheapest;
 	t_list	*min;
 
-	push(data->a, data->b, "b");
-	push(data->a, data->b, "b");
+	if(!check_ordered_circular(*(data->a)))
+		push(data->a, data->b, "b");
+	if(!check_ordered_circular(*(data->a)))
+		push(data->a, data->b, "b");
 	while (!check_ordered_circular(*(data->a)))
 	{
 		set_attributes(data->a, data->b);
