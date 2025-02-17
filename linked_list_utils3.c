@@ -6,13 +6,13 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 09:59:18 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/17 11:12:23 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/17 12:16:47 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		check_ordered_linear(t_list *a)
+int	check_ordered_linear(t_list *a)
 {
 	while (a && a->next)
 	{
@@ -23,11 +23,11 @@ int		check_ordered_linear(t_list *a)
 	return (1);
 }
 
-int		check_ordered_linear2(t_list *a, int til)
+int	check_ordered_linear2(t_list *a, int til)
 {
 	while (a && a->next && (a->next->index != til))
 	{
-		if((a->index) > (a->next->index))
+		if ((a->index) > (a->next->index))
 			return (0);
 		a = a->next;
 	}
@@ -49,7 +49,7 @@ void	set_lstsizes(t_list **stack)
 
 t_list	*find_cheapest_node(t_list *stack)
 {
-	t_list *comp;
+	t_list	*comp;
 
 	comp = stack;
 	while (comp)
