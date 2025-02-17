@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 10:02:32 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/15 19:52:22 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/17 10:52:41 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	pick_cost(t_list *a, int rr, int rrr, int cost)
 {
 	a->rr = rr;
 	a->rrr = rrr;
-	return(cost);
+	return (cost);
 }
 int		set_costs(t_list *a, t_list *b)
 {
@@ -28,85 +28,86 @@ int		set_costs(t_list *a, t_list *b)
 	ind_cost = calc_ind_cost(a, b);
 	rr_cost = calc_rr_cost(a, b);
 	rrr_cost = calc_rrr_cost(a, b);
-	if((ind_cost <= rr_cost) && (ind_cost <= rrr_cost))
-		return(pick_cost(a, 0, 0, ind_cost));
+	if ((ind_cost <= rr_cost) && (ind_cost <= rrr_cost))
+		return (pick_cost(a, 0, 0, ind_cost));
 	else if((rrr_cost <= rr_cost) && (rrr_cost <= ind_cost))
-		return(pick_cost(a, 0, 1, rrr_cost));
+		return (pick_cost(a, 0, 1, rrr_cost));
 	else
-		return(pick_cost(a, 1, 0, rr_cost));
+		return (pick_cost(a, 1, 0, rr_cost));
 }
 int		count_targets(t_list *a, t_list *b)
 {
 	int	count;
 
 	count = 0;
-	while(b)
+	while (b)
 	{
-		if((b->index) < (a->index))
+		if ((b->index) < (a->index))
 			count++;
 		b = b->next;
 	}
-	return(count);
+	return (count);
 }
 int		count_targets2(t_list *a, t_list *b)
 {
 	int	count;
 
 	count = 0;
-	while(b)
+	while (b)
 	{
 		if((b->index) > (a->index))
 			count++;
 		b = b->next;
 	}
-	return(count);
+	return (count);
 }
 t_list	*set_target(t_list *a, t_list **b)
 {
 	int count;
 
 	count = count_targets(a, *b);
-	if(count == 0)
+	if (count == 0)
 		a->target = find_biggest(*b);
 	else
 		a->target = find_biggest_lower_than(*b, a->index);
-	return(a->target);
+	return (a->target);
 }
 t_list	*find_smallest_higher_than(t_list *stack, int x)
 {
 	t_list *comp;
-	t_list	*min = NULL;
+	t_list	*min;
 
+	min = NULL;
 	comp = stack;
-	while(comp)
+	while (comp)
 	{
-		if((comp->index > x) && (min == NULL || (comp->index < min->index)))
+		if ((comp->index > x) && (min == NULL || (comp->index < min->index)))
 			min = comp;
 		else
 			comp = comp->next;
 	}
-	return(min);
+	return (min);
 }
 t_list	*set_target2(t_list *a, t_list **b)
 {
 	int count;
 
 	count = count_targets2(a, *b);
-	if(count == 0)
+	if (count == 0)
 		a->target = find_smallest(*b);
 	else
 		a->target = find_smallest_higher_than(*b, a->index);
-	return(a->target);
+	return (a->target);
 }
 void	set_attributes(t_list **a, t_list **b)
 {
 	t_list *temp;
 
 	temp = *a;
-	set_real_index(*a);
-	set_real_index(*b);
+	set_real_index (*a);
+	set_real_index (*b);
 	
-	while(*a)
+	while (*a)
 	{
 		(*a)->target = set_target(*a, b);
 		(*a)->cost = set_costs(*a, (*a)->target);
@@ -119,7 +120,7 @@ void	set_attributes2(t_list **a, t_list **b)
 	t_list *temp;
 
 	temp = *a;
-	while(*a)
+	while (*a)
 	{
 
 		(*a)->target = set_target2(*a, b);

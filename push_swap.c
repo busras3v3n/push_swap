@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 11:50:37 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/17 10:44:25 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/17 10:51:56 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int main(int argc, char **argv)
 	t_data *data;
 
 	data = ft_calloc(1, sizeof(t_data));
-	if(argc >= 2)
+	if (argc >= 2)
 	{
 		init_data(data, argv);
 		turk(data);

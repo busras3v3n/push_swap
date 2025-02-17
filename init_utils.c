@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 15:07:54 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/13 12:51:00 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/17 10:50:42 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,20 @@
 
 int	check_number_count(char **argv)
 {
-	int count;
-	int	i;
-	char **temp;
+	int		count;
+	int		i;
+	char	**temp;
 
 	count = 0;
 	i = 1;
-	while(argv[i])
+	while (argv[i])
 	{
 		temp = ft_split(argv[i], ' ');
 		count += get_2d_length(temp);
 		free_2d_arr(temp);
 		i++;
 	}
-	return(count);
+	return (count);
 }
 void	init_data_numbers(char **argv, t_data *data)
 {
@@ -39,11 +39,11 @@ void	init_data_numbers(char **argv, t_data *data)
 	i = 1;
 	n = 0;
 	data->numbers = ft_calloc(check_number_count(argv) + 1, sizeof(char *));
-	while(argv[i])
+	while (argv[i])
 	{
 		k = 0;
 		temp = ft_split(argv[i], ' ');
-		while(temp[k])
+		while (temp[k])
 		{
 			data->numbers[n] = temp[k];
 			n++;

@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 17:04:50 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/12 14:13:41 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/17 10:50:18 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	is_sign(char c)
 {
-	if(c == '-' || c == '+')
-		return(1);
-	return(0);
+	if (c == '-' || c == '+')
+		return (1);
+	return (0);
 }
 int	check_if_int(char *str)
 {
@@ -25,25 +25,25 @@ int	check_if_int(char *str)
 	int diff;
 
 	i = 0;
-	if(str[i] == '-')
+	if (str[i] == '-')
 		cmp = "-2147483648";
-	else if(str[i] == '+')
+	else if (str[i] == '+')
 		cmp = "+2147483647";
 	else
 		cmp = "2147483647";
 	diff = ft_strlen(str) - ft_strlen(cmp);
-	if(diff > 0)
-		return(0);
-	else if(diff == 0)
+	if (diff > 0)
+		return (0);
+	else if (diff == 0)
 	{
-		while(str[i])
+		while (str[i])
 		{
-			if(str[i] > cmp[i])
-				return(0);
+			if (str[i] > cmp[i])
+				return (0);
 			i++;
 		}
 	}
-	return(1);
+	return (1);
 }
 
 void	check_for_doubles(char **argv, t_data *data)
@@ -52,12 +52,12 @@ void	check_for_doubles(char **argv, t_data *data)
 	int	n;
 
 	i = 0;
-	while(argv[i])
+	while (argv[i])
 	{
 		n = 1;
-		while(argv[n])
+		while (argv[n])
 		{
-			if(i != n && ft_atoi(argv[i]) == ft_atoi(argv[n]))
+			if (i != n && ft_atoi(argv[i]) == ft_atoi(argv[n]))
 			{
 				write(2, "doubles are forbidden\n", 22);
 				free_data_exit(data);
@@ -73,14 +73,14 @@ void	check_for_invalid_char(char **argv, t_data *data)
 	int n;
 
 	i = 0;
-	while(argv[i])
+	while (argv[i])
 	{
 		n = 0;
-		while(argv[i][n])
+		while (argv[i][n])
 		{
-			if(is_sign(argv[i][n]) && n == 0)
+			if (is_sign(argv[i][n]) && n == 0)
 				;
-			else if(!ft_isdigit(argv[i][n]))
+			else if (!ft_isdigit(argv[i][n]))
 			{
 				write(2, "invalid character\n", 18);
 				free_data_exit(data);
@@ -96,9 +96,9 @@ void	check_for_non_int(char **argv, t_data *data)
 	int i;
 
 	i = 0;
-	while(argv[i])
+	while (argv[i])
 	{
-		if(!check_if_int(argv[i]))
+		if (!check_if_int(argv[i]))
 		{
 			write(2, "non int argument\n", 18);
 			free_data_exit(data);

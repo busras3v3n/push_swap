@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 09:59:18 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/15 15:40:55 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/17 10:51:32 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int		check_ordered_linear(t_list *a)
 {
-	while(a && a->next)
+	while (a && a->next)
 	{
-		if((a->index) > (a->next->index))
+		if ((a->index) > (a->next->index))
 			return (0);
 		a = a->next;
 	}
@@ -24,7 +24,7 @@ int		check_ordered_linear(t_list *a)
 }
 int		check_ordered_linear2(t_list *a, int til)
 {
-	while(a && a->next && (a->next->index != til))
+	while (a && a->next && (a->next->index != til))
 	{
 		if((a->index) > (a->next->index))
 			return (0);
@@ -38,7 +38,7 @@ void	set_lstsizes(t_list **stack)
 	t_list	*start;
 
 	start = *stack;
-	while(*stack)
+	while (*stack)
 	{
 		(*stack)->size = ft_lstsize(start);
 		*stack = (*stack)->next;
@@ -50,20 +50,20 @@ t_list	*find_cheapest_node(t_list *stack)
 	t_list *comp;
 
 	comp = stack;
-	while(comp)
+	while (comp)
 	{
-		if((comp->cost) < (stack->cost))
+		if ((comp->cost) < (stack->cost))
 			stack = comp;
 		else
 			comp = comp->next;
 	}
-	return(stack);
+	return (stack);
 }
 void	set_directions_list(t_list *a)
 {
-	while(a)
+	while (a)
 	{
-		if((a->position) <= (a->size / 2))
+		if ((a->position) <= (a->size / 2))
 			a->direction = 0;
 		else
 			a->direction = 1;

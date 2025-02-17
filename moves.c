@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:21:06 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/17 10:27:32 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/17 10:51:44 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@ void	swap(t_list **stack, char *name)
 	t_list *temp;
 	t_list	*next_temp;
 
-	(void)name;
-	if(ft_lstsize(*stack) > 1)
+	if (ft_lstsize(*stack) > 1)
 	{
     	temp = *stack;
 		(*stack) = (*stack)->next;
@@ -32,7 +31,7 @@ void	push(t_list **from, t_list **to, char *to_name)
 {
 	t_list	*b_new_head;
 
-	if(ft_lstsize(*from) > 0)
+	if (ft_lstsize(*from) > 0)
 	{
 		b_new_head = *from;
 		*from = (*from)->next;
