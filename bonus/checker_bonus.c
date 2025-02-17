@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:26:13 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/17 17:37:24 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/17 17:40:05 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ int	check_line_validity(t_data *data, char *line)
 	free_2d_arr(valid_moves);
 	return (0);
 }
+
 void	read_line(t_data *data)
 {
 	while (1)
