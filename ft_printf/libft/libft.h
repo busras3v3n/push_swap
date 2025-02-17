@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 13:52:21 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/12 13:50:48 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/17 17:19:40 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,8 @@ int		ft_toupper(int c);
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 char	*get_next_line(int fd);
 char	*ft_join(char	*str, char	*joining);
+char	*ft_read_file(int fd, char	*str);
+char	*new_buffer(char	*buffer);
+int		ft_findnewline(char *str);
 
 #endif

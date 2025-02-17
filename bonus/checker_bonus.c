@@ -1,17 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   checker_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:26:13 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/17 16:34:34 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/17 17:16:29 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_bonus.h"
 
+void	check_if_sorted(t_data *data)
+{
+	if(check_ordered_linear(*(data->a)) && !ft_lstsize(*(data->b)))
+		ft_printf("OK\n");
+	else
+		ft_printf("KO\n");
+	free_data_exit(data, 0);
+}
 void	check_action(t_data *data, char *line)
 {
 	if(!ft_strncmp(line, "sa\n", ft_strlen(line)))
@@ -106,29 +114,19 @@ int	main(int argc, char **argv)
 		init_data_bonus(data, argv);
 		while(1)
 		{
-			line = get_next_line(0);
+			line = get_next_line2(0, 1);
+			if(!line)
+				break ;
 			if(!check_line_validity(data, line))
+			{
+				write(2, "Error\n", 6);
+				free(line);
+				get_next_line2(0, 0);
 				free_data_exit(data, 1);
+			}
 			check_action(data, line);
-			temp_a = *(data->a);
-			temp_b = *(data->b);
-			while(*(data->a))
-			{
-				ft_printf("%d ", data->a[0]->content);
-				*(data->a) = data->a[0]->next;
-			}
-			*(data->a) = temp_a;
-			ft_printf("\n");
-			while(*(data->b))
-			{
-				ft_printf("%d ", data->b[0]->content);
-				*(data->b) = data->b[0]->next;
-			}
-			*(data->b) = temp_b;
-			ft_printf("\n");
 			free(line);
 		}
+		check_if_sorted(data);
 	}
-	else
-		write(2, "Error\nno arguments\n", 19);
 }
