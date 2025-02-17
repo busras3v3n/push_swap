@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 17:04:50 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/17 11:12:37 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/17 12:11:29 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ int	is_sign(char c)
 
 int	check_if_int(char *str)
 {
-	char *cmp;
-	int i;
-	int diff;
+	char	*cmp;
+	int		i;
+	int		diff;
 
 	i = 0;
 	if (str[i] == '-')
@@ -49,7 +49,7 @@ int	check_if_int(char *str)
 
 void	check_for_doubles(char **argv, t_data *data)
 {
-	int i;
+	int	i;
 	int	n;
 
 	i = 0;
@@ -71,8 +71,8 @@ void	check_for_doubles(char **argv, t_data *data)
 
 void	check_for_invalid_char(char **argv, t_data *data)
 {
-	int i;
-	int n;
+	int	i;
+	int	n;
 
 	i = 0;
 	while (argv[i])
@@ -87,7 +87,6 @@ void	check_for_invalid_char(char **argv, t_data *data)
 				write(2, "invalid character\n", 18);
 				free_data_exit(data);
 			}
-			
 			n++;
 		}
 		i++;
@@ -96,7 +95,7 @@ void	check_for_invalid_char(char **argv, t_data *data)
 
 void	check_for_non_int(char **argv, t_data *data)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (argv[i])
