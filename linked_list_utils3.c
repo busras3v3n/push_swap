@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 09:59:18 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/17 10:51:32 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/17 11:12:23 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int		check_ordered_linear(t_list *a)
 	}
 	return (1);
 }
+
 int		check_ordered_linear2(t_list *a, int til)
 {
 	while (a && a->next && (a->next->index != til))
@@ -45,6 +46,7 @@ void	set_lstsizes(t_list **stack)
 	}
 	*stack = start;
 }
+
 t_list	*find_cheapest_node(t_list *stack)
 {
 	t_list *comp;
@@ -59,6 +61,7 @@ t_list	*find_cheapest_node(t_list *stack)
 	}
 	return (stack);
 }
+
 void	set_directions_list(t_list *a)
 {
 	while (a)

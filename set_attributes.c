@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 10:02:32 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/17 10:52:41 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/17 11:13:54 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	pick_cost(t_list *a, int rr, int rrr, int cost)
 	a->rrr = rrr;
 	return (cost);
 }
+
 int		set_costs(t_list *a, t_list *b)
 {
 	int	ind_cost;
@@ -35,6 +36,7 @@ int		set_costs(t_list *a, t_list *b)
 	else
 		return (pick_cost(a, 1, 0, rr_cost));
 }
+
 int		count_targets(t_list *a, t_list *b)
 {
 	int	count;
@@ -48,6 +50,7 @@ int		count_targets(t_list *a, t_list *b)
 	}
 	return (count);
 }
+
 int		count_targets2(t_list *a, t_list *b)
 {
 	int	count;
@@ -61,6 +64,7 @@ int		count_targets2(t_list *a, t_list *b)
 	}
 	return (count);
 }
+
 t_list	*set_target(t_list *a, t_list **b)
 {
 	int count;
@@ -72,6 +76,7 @@ t_list	*set_target(t_list *a, t_list **b)
 		a->target = find_biggest_lower_than(*b, a->index);
 	return (a->target);
 }
+
 t_list	*find_smallest_higher_than(t_list *stack, int x)
 {
 	t_list *comp;
@@ -88,6 +93,7 @@ t_list	*find_smallest_higher_than(t_list *stack, int x)
 	}
 	return (min);
 }
+
 t_list	*set_target2(t_list *a, t_list **b)
 {
 	int count;
@@ -99,6 +105,7 @@ t_list	*set_target2(t_list *a, t_list **b)
 		a->target = find_smallest_higher_than(*b, a->index);
 	return (a->target);
 }
+
 void	set_attributes(t_list **a, t_list **b)
 {
 	t_list *temp;
@@ -115,6 +122,7 @@ void	set_attributes(t_list **a, t_list **b)
 	}
 	*a = temp;
 }
+
 void	set_attributes2(t_list **a, t_list **b)
 {
 	t_list *temp;

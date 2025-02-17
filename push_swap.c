@@ -6,12 +6,11 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 11:50:37 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/17 10:51:56 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/17 11:13:03 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 void	init_data(t_data *data, char **argv)
 {
@@ -25,6 +24,7 @@ void	init_data(t_data *data, char **argv)
 	set_lstsizes(data->a);
 	set_directions_list(*(data->a));
 }
+
 int main(int argc, char **argv)
 {
 	t_data *data;

@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 15:07:54 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/17 10:50:42 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/17 11:12:35 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int	check_number_count(char **argv)
 	}
 	return (count);
 }
+
 void	init_data_numbers(char **argv, t_data *data)
 {
 	char	**temp;
@@ -89,6 +90,7 @@ void	put_nodes_in_a(t_list **a, char **numbers)
 		i++;
 	}
 }
+
 void	check_arguments(char **numbers, t_data *data)
 {
 	check_for_invalid_char(numbers, data);

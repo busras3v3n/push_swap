@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:25:00 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/17 10:51:16 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/17 11:12:27 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ t_list	*find_biggest(t_list *stack)
 	}
 	return (stack);
 }
+
 t_list	*find_smallest(t_list *stack)
 {
 	t_list *comp;
@@ -69,6 +70,7 @@ void	set_real_index(t_list *stack)
 		i++;
 	}
 }
+
 t_list	*previous_node(t_list **list, t_list *node)
 {
 	t_list *temp;

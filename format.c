@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 17:04:50 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/17 10:50:18 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/17 11:12:37 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	is_sign(char c)
 		return (1);
 	return (0);
 }
+
 int	check_if_int(char *str)
 {
 	char *cmp;
@@ -67,6 +68,7 @@ void	check_for_doubles(char **argv, t_data *data)
 		i++;
 	}
 }
+
 void	check_for_invalid_char(char **argv, t_data *data)
 {
 	int i;
@@ -91,6 +93,7 @@ void	check_for_invalid_char(char **argv, t_data *data)
 		i++;
 	}
 }
+
 void	check_for_non_int(char **argv, t_data *data)
 {
 	int i;
