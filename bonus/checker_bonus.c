@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:26:13 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/17 17:16:29 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/17 17:22:44 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,23 +59,6 @@ void	init_data_bonus(t_data *data, char **argv)
 	set_directions_list(*(data->a));
 }
 
-char	*add_chars(char *str, char a)
-{
-	int		i;
-	char	*temp;
-
-	i = 0;
-	temp = ft_calloc(ft_strlen(str) + 2, sizeof(char));
-	while (str[i])
-	{
-		temp[i] = str[i];
-		i++;
-	}
-	temp[i] = a;
-	temp[i + 1] = '\0';
-	free(str);
-	return (temp);
-}
 int	check_line_validity(t_data *data, char *line)
 {
 	char	**valid_moves;

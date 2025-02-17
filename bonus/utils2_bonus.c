@@ -6,11 +6,29 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 17:14:53 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/17 17:17:39 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/17 17:22:57 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"push_swap_bonus.h"
+
+char	*add_chars(char *str, char a)
+{
+	int		i;
+	char	*temp;
+
+	i = 0;
+	temp = ft_calloc(ft_strlen(str) + 2, sizeof(char));
+	while (str[i])
+	{
+		temp[i] = str[i];
+		i++;
+	}
+	temp[i] = a;
+	temp[i + 1] = '\0';
+	free(str);
+	return (temp);
+}
 
 int	free_buffer(int k, char *buffer)
 {
