@@ -6,11 +6,25 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 17:15:36 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/17 13:41:22 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/18 13:17:52 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	rotate_until_sorted(t_data *data)
+{
+	t_list	*min;
+
+	min = find_smallest(*(data->a));
+	while (*(data->a) != min)
+	{
+		if (min->direction == 0)
+			rotate(data->a, "a");
+		else
+			reverse_rotate(data->a, "a");
+	}
+}
 
 void	get_nodes_to_top(t_data *data, t_list *a, t_list *b)
 {
@@ -35,7 +49,6 @@ void	get_nodes_to_top2(t_data *data, t_list *b, t_list *a)
 void	turk(t_data *data)
 {
 	t_list	*cheapest;
-	t_list	*min;
 
 	if (!check_ordered_circular(*(data->a)))
 		push(data->a, data->b, "b");
@@ -55,12 +68,5 @@ void	turk(t_data *data)
 		get_nodes_to_top2(data, cheapest, cheapest->target);
 		push(data->b, data->a, "a");
 	}
-	min = find_smallest(*(data->a));
-	while (*(data->a) != min)
-	{
-		if (min->direction == 0)
-			rotate(data->a, "a");
-		else
-			reverse_rotate(data->a, "a");
-	}
+	rotate_until_sorted(data);
 }

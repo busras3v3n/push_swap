@@ -6,7 +6,7 @@
 #    By: busseven <busseven@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/22 09:59:40 by busseven          #+#    #+#              #
-#    Updated: 2025/02/18 12:46:27 by busseven         ###   ########.fr        #
+#    Updated: 2025/02/18 12:52:49 by busseven         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ LIBS		= $(LIBFTPRINTF)
 
 all: $(LIBFTPRINTF) $(NAME)
 
-$(NAME): $(OBJS) $(LIBFTPRINTF)
+$(NAME): $(MAIN_OBJ) $(OBJS) $(LIBFTPRINTF)
 	$(CC) $(CFLAGS) $(MAIN_OBJ) $(OBJS) -o $(NAME) $(LFLAGS) $(LIBS)
 
 $(LIBFTPRINTF):
@@ -39,9 +39,12 @@ bonus: $(BONUS_OBJS) $(OBJS) $(LIBFTPRINTF)
 fclean: clean
 	make -C ./ft_printf fclean
 	rm -rf $(NAME)
+	rm -rf $(BONUS_NAME)
 
 clean:
 	rm -f $(OBJS)
+	rm -f $(MAIN_OBJ)
+	rm -f $(BONUS_OBJS)
 	make -C ./ft_printf clean
 
 re: fclean all

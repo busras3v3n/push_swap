@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 11:50:37 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/17 13:40:42 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/18 13:15:48 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,18 @@ void	tiny_sort(t_data *data)
 	}
 }
 
+void	small_sort(t_data *data)
+{
+	if (!check_ordered_circular(*(data->a)))
+	{
+		push(data->a, data->b, "b");
+		if (ft_lstsize(*(data->a)) > 3)
+			push(data->a, data->b, "b");
+		tiny_sort(data);
+		turk(data);
+	}
+}
+
 void	init_data(t_data *data, char **argv)
 {
 	init_data_numbers(argv, data);
@@ -61,6 +73,8 @@ int	main(int argc, char **argv)
 			return (0);
 		else if (ft_lstsize(*(data->a)) < 4)
 			tiny_sort(data);
+		else if (ft_lstsize(*(data->a)) == 4 || ft_lstsize(*(data->a)) == 5)
+			small_sort(data);
 		else
 			turk(data);
 		free_data_exit(data, 0);

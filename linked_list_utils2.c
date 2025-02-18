@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:25:00 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/17 12:31:19 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/18 13:14:37 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,20 +45,20 @@ t_list	*find_smallest(t_list *stack)
 t_list	*find_biggest_lower_than(t_list *stack, int x)
 {
 	t_list	*comp;
-	t_list	*biggest;
+	t_list	*max;
 
-	biggest = NULL;
+	max = NULL;
 	comp = stack;
 	while (comp)
 	{
-		if (comp->index < x && ((biggest == NULL) || (comp->index > biggest->index)))
+		if (comp->index < x && ((max == NULL) || (comp->index > max->index)))
 		{
-			biggest = comp;
+			max = comp;
 		}
 		else
 			comp = comp->next;
 	}
-	return (biggest);
+	return (max);
 }
 
 void	set_real_index(t_list *stack)
