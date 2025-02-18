@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 11:50:37 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/18 13:15:48 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/18 15:02:31 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,7 @@ int	main(int argc, char **argv)
 	if (argc >= 2)
 	{
 		init_data(data, argv);
-		if (ft_lstsize(*(data->a)) == 1)
-			return (0);
-		else if (ft_lstsize(*(data->a)) < 4)
+		if (ft_lstsize(*(data->a)) < 4)
 			tiny_sort(data);
 		else if (ft_lstsize(*(data->a)) == 4 || ft_lstsize(*(data->a)) == 5)
 			small_sort(data);
