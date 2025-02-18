@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:57:18 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/17 17:17:58 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/18 12:42:48 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,7 @@ void	both_rotate_bonus(t_list **stack_a, t_list **stack_b);
 void	both_swap_bonus(t_list **stack_a, t_list **stack_b);
 void	init_data_bonus(t_data *data, char **argv);
 char	*get_next_line2(int fd, int k);
+char	*add_chars(char *str, char a);
+void	check_action(t_data *data, char *line);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:26:13 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/17 17:40:05 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/18 12:43:12 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,12 @@ void	init_data_bonus(t_data *data, char **argv)
 	set_directions_list(*(data->a));
 }
 
-int	check_line_validity(t_data *data, char *line)
+int	check_line_validity(char *line)
 {
 	char	**valid_moves;
 	int		i;
 
+	i = 0;
 	valid_moves = ft_split("sa sb ss ra rb rr rra rrb rrr pa pb", ' ');
 	while (valid_moves[i])
 	{
@@ -61,12 +62,14 @@ int	check_line_validity(t_data *data, char *line)
 
 void	read_line(t_data *data)
 {
+	char	*line;
+
 	while (1)
 	{
 		line = get_next_line2(0, 1);
 		if (!line)
 			break ;
-		if (!check_line_validity(data, line))
+		if (!check_line_validity(line))
 		{
 			write(2, "Error\n", 6);
 			free(line);
@@ -81,9 +84,6 @@ void	read_line(t_data *data)
 int	main(int argc, char **argv)
 {
 	t_data	*data;
-	char	*line;
-	t_list	*temp_a;
-	t_list	*temp_b;
 
 	data = ft_calloc(1, sizeof(t_data));
 	if (argc >= 2)
