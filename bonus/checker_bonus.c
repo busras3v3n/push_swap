@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:26:13 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/18 12:43:12 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/24 10:50:28 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,4 +92,5 @@ int	main(int argc, char **argv)
 		read_line(data);
 		check_if_sorted(data);
 	}
+	free_data_exit(data, 0);
 }
