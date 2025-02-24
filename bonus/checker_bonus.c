@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:26:13 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/24 10:50:28 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/24 12:25:03 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	check_if_sorted(t_data *data)
 void	init_data_bonus(t_data *data, char **argv)
 {
 	init_data_numbers(argv, data);
-	check_arguments(data->numbers, data);
+	check_arguments_bonus(data->numbers, data);
 	data->a = ft_calloc(1, sizeof(t_list **));
 	data->b = ft_calloc(1, sizeof(t_list **));
 	put_nodes_in_a(data->a, data->numbers);

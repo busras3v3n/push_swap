@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 12:53:37 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/17 16:07:12 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/24 12:27:26 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,5 +90,7 @@ void	reverse_rotate_together(t_data *data, t_list *a, t_list *b);
 void	rotate_together(t_data *data, t_list *a, t_list *b);
 void	rotate_individually(t_data *data, t_list *a, t_list *b);
 void	init_data(t_data *data, char **argv);
+int		check_if_int(char *str);
+int		is_sign(char c);
 
 #endif
