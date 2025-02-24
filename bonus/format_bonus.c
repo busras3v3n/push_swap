@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 12:22:53 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/24 12:40:24 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/24 12:45:41 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void	check_for_empty_arg_bonus(char **argv)
 	{
 		if (is_all_space(argv[i]) || argv[i][0] == '\0')
 		{
-			ft_printf("Error\n");
+			write(2, "Error\n", 6);
 			exit(1);
 		}
 		i++;

@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 12:32:54 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/24 12:39:43 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/24 12:46:11 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	check_for_empty_arg(char **argv)
 	{
 		if (is_all_space(argv[i]) || argv[i][0] == '\0')
 		{
-			ft_printf("Error\nEmpty argument(s)\n");
+			write(2, "Error\nEmpty argument(s)\n", 24);
 			exit(1);
 		}
 		i++;
