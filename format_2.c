@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 12:32:54 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/24 12:46:11 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/24 12:48:50 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int	is_all_space(char *str)
 	}
 	return (1);
 }
+
 void	check_for_empty_arg(char **argv)
 {
 	int	i;
