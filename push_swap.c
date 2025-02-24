@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 11:50:37 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/24 11:56:03 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/24 12:34:50 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ int	main(int argc, char **argv)
 {
 	t_data	*data;
 
+	check_for_empty_arg(argv);
 	data = ft_calloc(1, sizeof(t_data));
 	if (argc >= 2)
 	{

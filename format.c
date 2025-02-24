@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 17:04:50 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/24 12:18:17 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/24 12:42:33 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	check_for_doubles(char **argv, t_data *data)
 		{
 			if (i != n && ft_atoi(argv[i]) == ft_atoi(argv[n]))
 			{
-				write(2, "Error\ndoubles are forbidden\n", 22);
+				write(2, "Error\ndoubles are forbidden\n", 28);
 				free_data_exit(data, 1);
 			}
 			n++;
@@ -84,7 +84,7 @@ void	check_for_invalid_char(char **argv, t_data *data)
 				;
 			else if (!ft_isdigit(argv[i][n]))
 			{
-				write(2, "Error\ninvalid character\n", 18);
+				write(2, "Error\ninvalid character\n", 24);
 				free_data_exit(data, 1);
 			}
 			n++;
@@ -102,7 +102,7 @@ void	check_for_non_int(char **argv, t_data *data)
 	{
 		if (!check_if_int(argv[i]))
 		{
-			write(2, "Error\nnon int argument\n", 18);
+			write(2, "Error\nnon int argument\n", 23);
 			free_data_exit(data, 1);
 		}
 		i++;

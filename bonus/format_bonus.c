@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 12:22:53 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/24 12:25:55 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/24 12:40:24 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,4 +78,19 @@ void	check_arguments_bonus(char **numbers, t_data *data)
 	check_for_invalid_char_bonus(numbers, data);
 	check_for_non_int_bonus(numbers, data);
 	check_for_doubles_bonus(numbers, data);
+}
+void	check_for_empty_arg_bonus(char **argv)
+{
+	int	i;
+
+	i = 0;
+	while (argv[i])
+	{
+		if (is_all_space(argv[i]) || argv[i][0] == '\0')
+		{
+			ft_printf("Error\n");
+			exit(1);
+		}
+		i++;
+	}
 }
