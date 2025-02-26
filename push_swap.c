@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 11:50:37 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/24 12:34:50 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/26 17:39:04 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ void	small_sort(t_data *data)
 		if (ft_lstsize(*(data->a)) > 3)
 			push(data->a, data->b, "b");
 		tiny_sort(data);
-		turk(data);
 	}
+	turk(data);
 }
 
 void	init_data(t_data *data, char **argv)

@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 12:32:54 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/26 15:58:43 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/26 17:32:58 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	check_for_empty_arg(char **argv)
 		{
 			write(2, "Error\nArgument(s) either empty, ", 32);
 			write(2, "consisting of spaces only, ", 27);
-			write(2, "or have rogue '+' or '-' without numerals\n ", 43);
+			write(2, "or have rogue '+' or '-' without numerals\n", 43);
 			exit(1);
 		}
 		i++;
