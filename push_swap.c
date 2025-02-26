@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 11:50:37 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/26 17:39:04 by busseven         ###   ########.fr       */
+/*   Updated: 2025/02/26 20:44:07 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,10 +65,10 @@ int	main(int argc, char **argv)
 {
 	t_data	*data;
 
-	check_for_empty_arg(argv);
-	data = ft_calloc(1, sizeof(t_data));
 	if (argc >= 2)
 	{
+		check_for_empty_arg(argv);
+		data = ft_calloc(1, sizeof(t_data));
 		init_data(data, argv);
 		if (ft_lstsize(*(data->a)) < 4)
 			tiny_sort(data);
@@ -76,8 +76,6 @@ int	main(int argc, char **argv)
 			small_sort(data);
 		else
 			turk(data);
+		free_data_exit(data, 0);
 	}
-	else
-		write(2, "Error\nno arguments\n", 19);
-	free_data_exit(data, 0);
 }

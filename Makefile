@@ -6,14 +6,14 @@
 #    By: busseven <busseven@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/22 09:59:40 by busseven          #+#    #+#              #
-#    Updated: 2025/02/24 12:33:45 by busseven         ###   ########.fr        #
+#    Updated: 2025/02/26 20:39:29 by busseven         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRC 		= 	./format.c ./utils.c ./linked_list_utils.c ./linked_list_utils2.c ./moves.c ./moves2.c ./init_utils.c ./turk.c \
 				./cost_calculation_utils.c ./linked_list_utils3.c ./set_attributes.c ./set_attributes_b.c ./turk_utils.c ./format_2.c
 MAIN		=	./push_swap.c
-BONUS_SRC	=	./bonus/checker_bonus.c ./bonus/moves_bonus.c ./bonus/moves2_bonus.c ./bonus/utils_bonus.c ./bonus/format_bonus.c
+BONUS_SRC	=	./bonus/checker_bonus.c ./bonus/moves_bonus.c ./bonus/moves2_bonus.c ./bonus/utils_bonus.c
 OBJS 		= $(SRC:.c=.o)
 MAIN_OBJ	= $(MAIN:.c=.o)
 BONUS_OBJS	= $(BONUS_SRC:.c=.o)
