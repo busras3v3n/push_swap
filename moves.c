@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:21:06 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/17 13:27:45 by busseven         ###   ########.fr       */
+/*   Updated: 2025/03/01 11:18:53 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,13 @@ void	rotate(t_list **stack, char *name)
 {
 	t_list	*temp;
 
-	temp = *stack;
-	*stack = (*stack)->next;
-	temp->next = NULL;
-	ft_lstadd_back(stack, temp);
+	if (ft_lstsize(*stack) > 1)
+	{
+		temp = *stack;
+		*stack = (*stack)->next;
+		temp->next = NULL;
+		ft_lstadd_back(stack, temp);
+	}
 	ft_printf("r%s\n", name);
 }
 
@@ -65,11 +68,14 @@ void	reverse_rotate(t_list **stack, char *name)
 	t_list	*prev;
 	t_list	*sec;
 
-	sec = *stack;
-	last = ft_lstlast(*stack);
-	prev = previous_node(stack, last);
-	prev->next = NULL;
-	*stack = last;
-	last->next = sec;
+	if (ft_lstsize(*stack) > 1)
+	{
+		sec = *stack;
+		last = ft_lstlast(*stack);
+		prev = previous_node(stack, last);
+		prev->next = NULL;
+		*stack = last;
+		last->next = sec;	
+	}
 	ft_printf("rr%s\n", name);
 }

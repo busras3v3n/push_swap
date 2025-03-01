@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:46:25 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/17 17:39:40 by busseven         ###   ########.fr       */
+/*   Updated: 2025/03/01 11:18:19 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,13 @@ void	rotate_bonus(t_list **stack)
 {
 	t_list	*temp;
 
-	temp = *stack;
-	*stack = (*stack)->next;
-	temp->next = NULL;
-	ft_lstadd_back(stack, temp);
+	if (ft_lstsize(*stack) > 1)
+	{
+		temp = *stack;
+		*stack = (*stack)->next;
+		temp->next = NULL;
+		ft_lstadd_back(stack, temp);
+	}
 }
 
 void	reverse_rotate_bonus(t_list **stack)
@@ -62,10 +65,13 @@ void	reverse_rotate_bonus(t_list **stack)
 	t_list	*prev;
 	t_list	*sec;
 
-	sec = *stack;
-	last = ft_lstlast(*stack);
-	prev = previous_node(stack, last);
-	prev->next = NULL;
-	*stack = last;
-	last->next = sec;
+	if (ft_lstsize(*stack) > 1)
+	{
+		sec = *stack;
+		last = ft_lstlast(*stack);
+		prev = previous_node(stack, last);
+		prev->next = NULL;
+		*stack = last;
+		last->next = sec;	
+	}
 }
