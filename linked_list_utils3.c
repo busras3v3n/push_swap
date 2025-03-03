@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 09:59:18 by busseven          #+#    #+#             */
-/*   Updated: 2025/02/17 12:16:47 by busseven         ###   ########.fr       */
+/*   Updated: 2025/03/03 18:12:22 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	check_ordered_linear(t_list *a)
 	return (1);
 }
 
-int	check_ordered_linear2(t_list *a, int til)
+int	check_ordered_linear_until(t_list *a, int til)
 {
 	while (a && a->next && (a->next->index != til))
 	{
