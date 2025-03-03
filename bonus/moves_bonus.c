@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:46:25 by busseven          #+#    #+#             */
-/*   Updated: 2025/03/01 11:18:19 by busseven         ###   ########.fr       */
+/*   Updated: 2025/03/03 11:52:04 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,6 @@ void	reverse_rotate_bonus(t_list **stack)
 		prev = previous_node(stack, last);
 		prev->next = NULL;
 		*stack = last;
-		last->next = sec;	
+		last->next = sec;
 	}
 }
