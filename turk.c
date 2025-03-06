@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 17:15:36 by busseven          #+#    #+#             */
-/*   Updated: 2025/03/06 13:05:17 by busseven         ###   ########.fr       */
+/*   Updated: 2025/03/06 14:41:29 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,15 +54,13 @@ void	turk(t_data *data)
 		push(data->a, data->b, "b");
 	if (!check_ordered_circular(*(data->a)))
 		push(data->a, data->b, "b");
-	while (!check_ordered_circular(*(data->a)) && ft_lstsize(*(data->a)) > 3)
+	while (!check_ordered_circular(*(data->a)))
 	{
 		set_attributes_a(data->a, data->b);
 		cheapest = find_cheapest_node(*(data->a));
 		get_nodes_to_top_atob(data, cheapest, cheapest->target);
 		push(data->a, data->b, "b");
 	}
-	if(ft_lstsize(*(data->a)) <= 3)
-		tiny_sort(data);
 	while (*(data->b))
 	{
 		set_attributes_b(data->b, data->a);
