@@ -6,14 +6,13 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 12:53:37 by busseven          #+#    #+#             */
-/*   Updated: 2025/03/06 13:05:32 by busseven         ###   ########.fr       */
+/*   Updated: 2025/03/06 14:07:14 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "./ft_printf/libft/libft.h"
 # include "./ft_printf/ft_printf.h"
 # include <unistd.h>
 
