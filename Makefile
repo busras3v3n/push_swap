@@ -6,7 +6,7 @@
 #    By: busseven <busseven@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/22 09:59:40 by busseven          #+#    #+#              #
-#    Updated: 2025/03/06 13:24:51 by busseven         ###   ########.fr        #
+#    Updated: 2025/03/06 18:00:30 by busseven         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,6 @@ fclean: clean
 
 clean:
 	rm -f $(OBJS)
-	rm -f $(MAIN_OBJ)
 	rm -f $(BONUS_OBJS)
 	make -C ./ft_printf clean
 
