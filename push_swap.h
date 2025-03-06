@@ -6,7 +6,7 @@
 /*   By: busseven <busseven@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 12:53:37 by busseven          #+#    #+#             */
-/*   Updated: 2025/03/03 18:12:11 by busseven         ###   ########.fr       */
+/*   Updated: 2025/03/06 13:05:32 by busseven         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ t_list	*find_biggest(t_list *stack);
 void	turk(t_data *data);
 t_list	*find_biggest_lower_than(t_list *stack, int x);
 void	set_lstsizes(t_list **stack);
-void	set_attributes(t_list **a, t_list **b);
+void	set_attributes_a(t_list **a, t_list **b);
 void	set_distances(t_list *a, t_list *b);
 void	set_directions(t_list *a, t_list *b);
 int		calc_ind_cost(t_list *a, t_list *b);
@@ -81,10 +81,10 @@ t_list	*find_smallest(t_list *stack);
 int		check_ordered(t_list *a);
 int		check_ordered_circular(t_list *a);
 int		check_ordered_linear(t_list *a);
-int		check_ordered_linear2(t_list *a, int til);
+int		check_ordered_linear_until(t_list *a, int til);
 int		set_costs(t_list *a, t_list *b);
 t_list	*previous_node(t_list **list, t_list *node);
-void	set_attributes2(t_list **a, t_list **b);
+void	set_attributes_b(t_list **a, t_list **b);
 int		check_ordered_circular(t_list *a);
 void	reverse_rotate_together(t_data *data, t_list *a, t_list *b);
 void	rotate_together(t_data *data, t_list *a, t_list *b);
@@ -95,5 +95,6 @@ int		is_sign(char c);
 void	check_for_empty_arg(char **argv);
 int		is_all_space_or_sign(char *str);
 void	init_data(t_data *data, char **argv);
+void	tiny_sort(t_data *data);
 
 #endif
