@@ -19,7 +19,7 @@ But of course, the code is entirely my own.
 
 - Push_swap takes a set of integers as arguments.<br>
 - It accepts integers and integer sets isolated in double quotes as arguments, with optional signs and leading zeros.<br>
-- It prints the operations it uses to sort the stack in order, separated by newlines.<br>
+- It then prints the operations it uses to sort the stack in order, separated by newlines.<br>
 
 ### example usage:
 `./push_swap -3 12 +5 "0042 -15" -0 "34"`<br>
